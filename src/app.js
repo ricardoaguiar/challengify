@@ -38,15 +38,15 @@ const Challenge = ({challengeId}) => (
     <Link to='..'>Challenges</Link>
 
     <h3>Record 1</h3>
-    <Link to='records/1/edit'>Settings</Link>
+    <Link to='records/1/edit'>Edit</Link>
     <Link to='records/1/delete'>Delete</Link>
 
     <h3>Record 2</h3>
-    <Link to='records/2/edit'>Settings</Link>
+    <Link to='records/2/edit'>Edit</Link>
     <Link to='records/2/delete'>Delete</Link>
 
     <h3>Record 3</h3>
-    <Link to='records/3/edit'>Settings</Link>
+    <Link to='records/3/edit'>Edit</Link>
     <Link to='records/3/delete'>Delete</Link>
   </div>
 )
