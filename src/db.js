@@ -56,6 +56,23 @@ const createChallenge = async ({
   })
 )
 
+// updateChallenge({
+//   id: idToUpdate,
+//   title: 'Updated test title',
+//   type: 'minimum',
+//   startTimestamp: Date.now(),
+//   endTimestamp: null,
+//   targetValue: 1,
+//   scheduling: {
+//     type: "weekly",
+//     times: 3
+//   },
+//   unit: {
+//     singular: "time",
+//     plural: "times"
+//   }
+// })
+
 // updateChallenge
 const updateChallenge = async ({
   id,
@@ -79,23 +96,6 @@ const updateChallenge = async ({
     archived
   })
 )
-
-// updateChallenge({
-//   id: idToUpdate,
-//   title: 'Updated test title',
-//   type: 'minimum',
-//   startTimestamp: Date.now(),
-//   endTimestamp: null,
-//   targetValue: 1,
-//   scheduling: {
-//     type: "weekly",
-//     times: 3
-//   },
-//   unit: {
-//     singular: "time",
-//     plural: "times"
-//   }
-// })
 
 // deleteChallenge
 // getRecordsForChallenge
