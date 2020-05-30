@@ -57,10 +57,54 @@ const createChallenge = async ({
 )
 
 // updateChallenge
+const updateChallenge = async ({
+  id,
+  title,
+  type,
+  startTimestamp,
+  endTimestamp,
+  targetValue,
+  scheduling,
+  unit,
+  archived
+}) => await (
+  db.challenges.update(id, {
+    title,
+    type,
+    startTimestamp,
+    endTimestamp,
+    targetValue,
+    scheduling,
+    unit,
+    archived
+  })
+)
+
+// updateChallenge({
+//   id: idToUpdate,
+//   title: 'Updated test title',
+//   type: 'minimum',
+//   startTimestamp: Date.now(),
+//   endTimestamp: null,
+//   targetValue: 1,
+//   scheduling: {
+//     type: "weekly",
+//     times: 3
+//   },
+//   unit: {
+//     singular: "time",
+//     plural: "times"
+//   }
+// })
+
 // deleteChallenge
 // getRecordsForChallenge
 // createRecord
 // updateRecord
 // deleteRecord
 
-export {createChallenge, getChallenges}
+export {
+  createChallenge,
+  getChallenges,
+  updateChallenge
+}
