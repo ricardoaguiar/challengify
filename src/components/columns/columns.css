@@ -1,0 +1,27 @@
+.columns {
+  display: flex;
+}
+
+.columns > * {
+  flex-grow: 1;
+}
+
+.columns.gapSizeSmall > * {
+  margin: 0 4px;
+}
+
+.columns.gapSizeMedium > * {
+  margin: 0 8px;
+}
+
+.columns.gapSizeBig > * {
+  margin: 0 12px;
+}
+
+.columns > *:first-child {
+  margin-left: 0;
+}
+
+.columns > *:last-child {
+  margin-right: 0;
+}
