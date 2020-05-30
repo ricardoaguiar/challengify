@@ -21,8 +21,8 @@ ReactDOM.render(<App />, document.getElementById('root'))
 serviceWorker.unregister()
 
 const testDb = async () => {
-  await createChallenge({
-    title: 'Test title',
+  const firstChallengeId = await createChallenge({
+    title: 'Test title 1',
     type: 'minimum',
     startTimestamp: Date.now(),
     endTimestamp: null,
@@ -37,13 +37,25 @@ const testDb = async () => {
     }
   })
 
-  let challenges = await getChallenges()
+  const lastChallengeId = await createChallenge({
+    title: 'Test title 2',
+    type: 'minimum',
+    startTimestamp: Date.now(),
+    endTimestamp: null,
+    targetValue: 1,
+    scheduling: {
+      type: "weekly",
+      times: 3
+    },
+    unit: {
+      singular: "time",
+      plural: "times"
+    }
+  })
 
-  const lastChallengeIndex = challenges.length - 1
-  const lastChallengeId = challenges[lastChallengeIndex].id
   await updateChallenge({
     id: lastChallengeId,
-    title: 'Updated test title',
+    title: 'Updated test title 2',
     type: 'minimum',
     startTimestamp: Date.now(),
     endTimestamp: null,
@@ -76,10 +88,9 @@ const testDb = async () => {
     value: Date.now() + 2345
   })
 
-  const firstChallengeId = challenges[0].id
   await deleteChallenge({id: firstChallengeId})
 
-  challenges = await getChallenges()
+  const challenges = await getChallenges()
   console.log({challenges})
 }
 
