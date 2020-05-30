@@ -6,7 +6,8 @@ import {
   createChallenge,
   getChallenges,
   updateChallenge,
-  deleteChallenge
+  deleteChallenge,
+  createRecord
 } from './db'
 import * as serviceWorker from './serviceWorker'
 
@@ -36,7 +37,7 @@ const testDb = async () => {
     }
   })
 
-  const challenges = await getChallenges()
+  let challenges = await getChallenges()
 
   const lastChallengeIndex = challenges.length - 1
   const lastChallengeId = challenges[lastChallengeIndex].id
@@ -57,8 +58,29 @@ const testDb = async () => {
     }
   })
 
+  await createRecord({
+    challengeId: lastChallengeId,
+    timestamp: Date.now(),
+    value: Date.now()
+  })
+
+  await createRecord({
+    challengeId: lastChallengeId,
+    timestamp: Date.now() + 1234,
+    value: Date.now() + 2345
+  })
+
+  await createRecord({
+    challengeId: lastChallengeId,
+    timestamp: Date.now() + 1234,
+    value: Date.now() + 2345
+  })
+
   const firstChallengeId = challenges[0].id
   await deleteChallenge({id: firstChallengeId})
+
+  challenges = await getChallenges()
+  console.log({challenges})
 }
 
 testDb()
