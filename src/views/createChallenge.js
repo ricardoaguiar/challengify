@@ -1,6 +1,7 @@
 import React from 'react'
 
 import View from '../components/viewSkeleton/viewSkeleton'
+import InputField from '../components/inputField/inputField'
 
 const CreateChallenge = () => (
   <View
@@ -12,9 +13,11 @@ const CreateChallenge = () => (
       }
     }}
   >
-    <p>
-      Create new challenge form will come here
-    </p>
+    <InputField
+      id='newChallengeTitle'
+      label='Title'
+      placeholder='e.g. Smoke less'
+    />
   </View>
 )
 export default CreateChallenge
