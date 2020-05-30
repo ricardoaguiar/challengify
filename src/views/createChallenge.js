@@ -1,10 +1,20 @@
 import React from 'react'
-import {Link} from "@reach/router"
+
+import View from '../components/viewSkeleton/viewSkeleton'
 
 const CreateChallenge = () => (
-  <div>
-    <h2>New</h2>
-    <Link to='..' >Challenges</Link>
-  </div>
+  <View
+    title='Create new challenge'
+    actions={{
+      left: {
+        to: '..',
+        text: 'Back'
+      }
+    }}
+  >
+    <p>
+      Create new challenge form will come here
+    </p>
+  </View>
 )
 export default CreateChallenge

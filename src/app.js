@@ -57,7 +57,7 @@ const Challenge = ({challengeId}) => (
 const ChallengeRouter = ({challengeId}) => (
   <div>
     <h1>Challenge router for {challengeId}</h1>
-    <Router>
+    <Router className='fullSize'>
       <ChallengeSettings path="settings" />
       <DeleteChallenge path="delete" />
       <EditRecord
@@ -88,7 +88,7 @@ const Challenges = () => (
 )
 
 const ChallengesRouter = () => (
-  <Router>
+  <Router className='fullSize'>
     <CreateChallenge path="new" />
     <ChallengeRouter path=":challengeId/*" />
     <Challenges path="challenges" default />
@@ -96,11 +96,9 @@ const ChallengesRouter = () => (
 )
 
 const App = () => (
-  <div className='App'>
-    <Router>
-      <ChallengesRouter path="challenges/*" />
-    </Router>
-  </div>
+  <Router className='fullSize'>
+    <ChallengesRouter path="challenges/*" />
+  </Router>
 )
 
 export default App
