@@ -8,7 +8,10 @@ const RadioButtonGroup = ({
 }) => (
   <div className='radioButtonGroup'>
     {options.map(({selected, label}) => (
-      <button className={classNames({selected})}>
+      <button
+        key={label}
+        className={classNames({selected})}
+      >
         {label}
       </button>
     ))}
