@@ -1,7 +1,6 @@
 import React from 'react'
 import {Router, Link} from "@reach/router"
 
-
 import './app.css'
 
 const EditRecord = ({challengeId, recordId}) => (
