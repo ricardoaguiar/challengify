@@ -16,6 +16,11 @@ const ViewSkeleton = ({
         </Link>
       )}
       <h1>{title}</h1>
+      {(actions?.right?.to && actions?.right?.text) && (
+        <Link to={actions.right.to} >
+          {actions.right.text}
+        </Link>
+      )}
     </header>
     <div className='viewContent'>
       {children}

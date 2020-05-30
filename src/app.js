@@ -15,13 +15,15 @@ const EditRecord = ({challengeId, recordId}) => (
         text: 'Back'
       }
     }}
-  ></View>
+  >
+    <Link to='../delete'>Delete</Link>
+  </View>
 )
 
 const DeleteRecord = ({challengeId, recordId}) => (
   <div>
     Delete record {recordId} of challenge {challengeId}?
-    <Link to='../../..'>No, go back to challenge</Link>
+    <Link to='../edit'>No, go back to record</Link>
   </div>
 )
 
@@ -34,13 +36,15 @@ const ChallengeSettings = ({challengeId}) => (
         text: 'Back'
       }
     }}
-  ></View>
+  >
+    <Link to='../delete'>Delete</Link>
+  </View>
 )
 
 const DeleteChallenge = ({challengeId}) => (
   <div>
     <h2>Delete challenge {challengeId}?</h2>
-    <Link to='..'>No, back to challenge</Link>
+    <Link to='../settings'>No, back to challenge</Link>
   </div>
 )
 
@@ -51,23 +55,21 @@ const Challenge = ({challengeId}) => (
       left: {
         to: '..',
         text: 'Back'
+      },
+      right: {
+        to: 'settings',
+        text: 'Edit'
       }
     }}
   >
-    <Link to='settings'>Settings</Link>
-    <Link to='delete'>Delete</Link>
-
     <h3>Record 1</h3>
     <Link to='records/1/edit'>Edit</Link>
-    <Link to='records/1/delete'>Delete</Link>
 
     <h3>Record 2</h3>
     <Link to='records/2/edit'>Edit</Link>
-    <Link to='records/2/delete'>Delete</Link>
 
     <h3>Record 3</h3>
     <Link to='records/3/edit'>Edit</Link>
-    <Link to='records/3/delete'>Delete</Link>
   </View>
 )
 
@@ -94,11 +96,16 @@ const ChallengeRouter = ({challengeId}) => (
 const Challenges = () => (
   <View
     title='Challenges'
+    actions={{
+      right: {
+        to: 'new',
+        text: 'New'
+      }
+    }}
   >
     <Link to='id1'>Challenge 1</Link>
     <Link to='id2'>Challenge 2</Link>
     <Link to='id3'>Challenge 3</Link>
-    <Link to='new'>New</Link>
   </View>
 )
 
