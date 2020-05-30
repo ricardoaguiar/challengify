@@ -117,10 +117,16 @@ const updateChallenge = async ({
 // deleteChallenge({id: idToDelete})
 
 // deleteChallenge
-const deleteChallenge = async ({id}) => await (
-  db.challenges.delete(id)
-  // TODO: Delete associated records here
-)
+const deleteChallenge = async ({id}) => {
+  await db
+    .records
+    .where('challengeId')
+    .equals(id)
+    .delete()
+  return await (
+    db.challenges.delete(id)
+  )
+}
 
 // createRecord
 const createRecord = async ({
