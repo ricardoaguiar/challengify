@@ -2,6 +2,11 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import App from './app'
+import {
+  createChallenge,
+  getChallenges,
+  updateChallenge
+} from './db'
 import * as serviceWorker from './serviceWorker'
 
 import './index.css'
@@ -12,3 +17,43 @@ ReactDOM.render(<App />, document.getElementById('root'))
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister()
+
+const testDb = async () => {
+  await createChallenge({
+    title: 'Test title',
+    type: 'minimum',
+    startTimestamp: Date.now(),
+    endTimestamp: null,
+    targetValue: 1,
+    scheduling: {
+      type: "weekly",
+      times: 3
+    },
+    unit: {
+      singular: "time",
+      plural: "times"
+    }
+  })
+  const challenges = await getChallenges()
+  const lastChallengeIndex = challenges.length - 1
+  const lastChallenge = challenges[lastChallengeIndex]
+  const lastChallengeId = lastChallenge.id
+  await updateChallenge({
+    id: lastChallengeId,
+    title: 'Updated test title',
+    type: 'minimum',
+    startTimestamp: Date.now(),
+    endTimestamp: null,
+    targetValue: 1,
+    scheduling: {
+      type: "weekly",
+      times: 3
+    },
+    unit: {
+      singular: "time",
+      plural: "times"
+    }
+  })
+}
+
+testDb()
