@@ -5,7 +5,8 @@ import App from './app'
 import {
   createChallenge,
   getChallenges,
-  updateChallenge
+  updateChallenge,
+  deleteChallenge
 } from './db'
 import * as serviceWorker from './serviceWorker'
 
@@ -34,10 +35,11 @@ const testDb = async () => {
       plural: "times"
     }
   })
+
   const challenges = await getChallenges()
+
   const lastChallengeIndex = challenges.length - 1
-  const lastChallenge = challenges[lastChallengeIndex]
-  const lastChallengeId = lastChallenge.id
+  const lastChallengeId = challenges[lastChallengeIndex].id
   await updateChallenge({
     id: lastChallengeId,
     title: 'Updated test title',
@@ -54,6 +56,9 @@ const testDb = async () => {
       plural: "times"
     }
   })
+
+  const firstChallengeId = challenges[0].id
+  await deleteChallenge({id: firstChallengeId})
 }
 
 testDb()

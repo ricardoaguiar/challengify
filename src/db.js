@@ -17,6 +17,7 @@ const getChallenges = async () => await (
   db
     .challenges
     .toArray()
+  // TODO: Get associated records here
 )
 
 // createChallenge({
@@ -97,7 +98,14 @@ const updateChallenge = async ({
   })
 )
 
+// deleteChallenge({id: idToDelete})
+
 // deleteChallenge
+const deleteChallenge = async ({id}) => await (
+  db.challenges.delete(id)
+  // TODO: Delete associated records here
+)
+
 // getRecordsForChallenge
 // createRecord
 // updateRecord
@@ -106,5 +114,6 @@ const updateChallenge = async ({
 export {
   createChallenge,
   getChallenges,
-  updateChallenge
+  updateChallenge,
+  deleteChallenge
 }
