@@ -1,0 +1,11 @@
+.gap.small {
+  height: 8px;
+}
+
+.gap.medium {
+  height: 16px;
+}
+
+.gap.big {
+  height: 24px;
+}
