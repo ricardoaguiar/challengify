@@ -1,6 +1,8 @@
 import React from 'react'
 import {Router, Link} from "@reach/router"
 
+import CreateChallenge from './views/createChallenge'
+
 import './app.css'
 
 const EditRecord = ({challengeId, recordId}) => (
@@ -85,22 +87,12 @@ const Challenges = () => (
   </div>
 )
 
-const New = () => (
-  <div>
-    <h2>New</h2>
-    <Link to='..' >Challenges</Link>
-  </div>
-)
-
 const ChallengesRouter = () => (
-  <div>
-    <h1>Challenges router</h1>
-    <Router>
-      <New path="new" />
-      <ChallengeRouter path=":challengeId/*" />
-      <Challenges path="challenges" default />
-    </Router>
-  </div>
+  <Router>
+    <CreateChallenge path="new" />
+    <ChallengeRouter path=":challengeId/*" />
+    <Challenges path="challenges" default />
+  </Router>
 )
 
 const App = () => (
