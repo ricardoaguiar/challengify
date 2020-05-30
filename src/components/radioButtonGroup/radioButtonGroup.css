@@ -1,0 +1,15 @@
+.radioButtonGroup {
+  width: 100%;
+  display: flex;
+}
+
+.radioButtonGroup button {
+  flex-grow: 1;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.radioButtonGroup button.selected {
+  background-color: hsl(195, 100%, 75%);
+  cursor: default;
+}
