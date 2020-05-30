@@ -7,7 +7,9 @@ import {
   getChallenges,
   updateChallenge,
   deleteChallenge,
-  createRecord
+  createRecord,
+  updateRecord,
+  deleteRecord
 } from './db'
 import * as serviceWorker from './serviceWorker'
 
@@ -90,7 +92,17 @@ const testDb = async () => {
 
   await deleteChallenge({id: firstChallengeId})
 
-  const challenges = await getChallenges()
+  let challenges = await getChallenges()
+  const lastChallenge = challenges.find(({id}) => id === lastChallengeId)
+  const recordToDelete = lastChallenge.records[0]
+  const recordToUpdate = lastChallenge.records[1]
+  await updateRecord({
+    ...recordToUpdate,
+    value: -1
+  })
+  await deleteRecord({id: recordToDelete.id})
+
+  challenges = await getChallenges()
   console.log({challenges})
 }
 

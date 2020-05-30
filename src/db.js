@@ -142,12 +142,30 @@ const createRecord = async ({
 )
 
 // updateRecord
+const updateRecord = async ({
+  id,
+  challengeId,
+  timestamp,
+  value
+}) => await (
+  db.records.update(id, {
+    challengeId,
+    timestamp,
+    value
+  })
+)
+
 // deleteRecord
+const deleteRecord = async ({id}) => await (
+  db.records.delete(id)
+)
 
 export {
   createChallenge,
   getChallenges,
   updateChallenge,
   deleteChallenge,
-  createRecord
+  createRecord,
+  updateRecord,
+  deleteRecord
 }
