@@ -2,14 +2,20 @@ import React from 'react'
 import {Router, Link} from "@reach/router"
 
 import CreateChallenge from './views/createChallenge'
+import View from './components/viewSkeleton/viewSkeleton'
 
 import './app.css'
 
 const EditRecord = ({challengeId, recordId}) => (
-  <div>
-    Edit record {recordId} of challenge {challengeId}.
-    <Link to='../../..'>Back to challenge</Link>
-  </div>
+  <View
+    title={`Edit record ${recordId} of challenge ${challengeId}`}
+    actions={{
+      left: {
+        to: '../../..',
+        text: 'Back'
+      }
+    }}
+  ></View>
 )
 
 const DeleteRecord = ({challengeId, recordId}) => (
@@ -20,10 +26,15 @@ const DeleteRecord = ({challengeId, recordId}) => (
 )
 
 const ChallengeSettings = ({challengeId}) => (
-  <div>
-    <h2>Challenge settings for {challengeId}</h2>
-    <Link to='..'>Back to challenge</Link>
-  </div>
+  <View
+    title={`Challenge settings for ${challengeId}`}
+    actions={{
+      left: {
+        to: '..',
+        text: 'Back'
+      }
+    }}
+  ></View>
 )
 
 const DeleteChallenge = ({challengeId}) => (
@@ -34,11 +45,17 @@ const DeleteChallenge = ({challengeId}) => (
 )
 
 const Challenge = ({challengeId}) => (
-  <div>
-    <h2>Challenge {challengeId}</h2>
+  <View
+    title={`Challenge ${challengeId}`}
+    actions={{
+      left: {
+        to: '..',
+        text: 'Back'
+      }
+    }}
+  >
     <Link to='settings'>Settings</Link>
     <Link to='delete'>Delete</Link>
-    <Link to='..'>Challenges</Link>
 
     <h3>Record 1</h3>
     <Link to='records/1/edit'>Edit</Link>
@@ -51,40 +68,38 @@ const Challenge = ({challengeId}) => (
     <h3>Record 3</h3>
     <Link to='records/3/edit'>Edit</Link>
     <Link to='records/3/delete'>Delete</Link>
-  </div>
+  </View>
 )
 
 const ChallengeRouter = ({challengeId}) => (
-  <div>
-    <h1>Challenge router for {challengeId}</h1>
-    <Router className='fullSize'>
-      <ChallengeSettings path="settings" />
-      <DeleteChallenge path="delete" />
-      <EditRecord
-        path="records/:recordId/edit"
-        challengeId={challengeId}
-      />
-      <DeleteRecord
-        path="records/:recordId/delete"
-        challengeId={challengeId}
-      />
-      <Challenge
-        path="./"
-        default
-        challengeId={challengeId}
-      />
-    </Router>
-  </div>
+  <Router className='fullSize'>
+    <ChallengeSettings path="settings" />
+    <DeleteChallenge path="delete" />
+    <EditRecord
+      path="records/:recordId/edit"
+      challengeId={challengeId}
+    />
+    <DeleteRecord
+      path="records/:recordId/delete"
+      challengeId={challengeId}
+    />
+    <Challenge
+      path="./"
+      default
+      challengeId={challengeId}
+    />
+  </Router>
 )
 
 const Challenges = () => (
-  <div>
-    <h2>Challenges</h2>
+  <View
+    title='Challenges'
+  >
     <Link to='id1'>Challenge 1</Link>
     <Link to='id2'>Challenge 2</Link>
     <Link to='id3'>Challenge 3</Link>
     <Link to='new'>New</Link>
-  </div>
+  </View>
 )
 
 const ChallengesRouter = () => (
