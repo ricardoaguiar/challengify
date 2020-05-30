@@ -3,3 +3,7 @@
   display: block;
   padding: 8px;
 }
+
+.inputField label {
+  cursor: pointer;
+}
