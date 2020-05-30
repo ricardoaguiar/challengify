@@ -1,9 +1,9 @@
 import React from 'react'
 import {Link} from "@reach/router"
 
-import './viewSkeleton.css'
+import './view.css'
 
-const ViewSkeleton = ({
+const View = ({
   title,
   actions,
   children
@@ -27,4 +27,4 @@ const ViewSkeleton = ({
     </div>
   </div>
 )
-export default ViewSkeleton
+export default View

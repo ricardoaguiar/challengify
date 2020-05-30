@@ -1,6 +1,6 @@
 import React from 'react'
 
-import View from '../components/viewSkeleton/viewSkeleton'
+import View from '../components/view/view'
 import InputField from '../components/inputField/inputField'
 import Gap from '../components/gap/gap'
 import RadioButtonGroup from '../components/radioButtonGroup/radioButtonGroup'

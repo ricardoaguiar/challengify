@@ -2,7 +2,7 @@ import React from 'react'
 import {Router, Link} from "@reach/router"
 
 import CreateChallenge from './views/createChallenge'
-import View from './components/viewSkeleton/viewSkeleton'
+import View from './components/view/view'
 
 import './app.css'
 
