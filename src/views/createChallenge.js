@@ -16,6 +16,14 @@ const CreateChallenge = () => (
       }
     }}
   >
+    <RadioButtonGroup
+      options={[
+        {label: 'Target', selected: true},
+        {label: 'Limit'},
+        {label: 'Track'}
+      ]}
+    />
+    <Gap size='big' />
     <InputField
       id='newChallengeTitle'
       label='Title'
@@ -38,14 +46,6 @@ const CreateChallenge = () => (
         />
       </div>
     </Columns>
-    <Gap size='big' />
-    <RadioButtonGroup
-      options={[
-        {label: 'Target', selected: true},
-        {label: 'Limit'},
-        {label: 'Track'}
-      ]}
-    />
   </View>
 )
 export default CreateChallenge
