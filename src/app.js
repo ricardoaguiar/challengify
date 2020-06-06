@@ -5,6 +5,7 @@ import CreateChallenge from './views/createChallenge'
 import View from './components/view/view'
 
 import './app.css'
+import './variables.css'
 
 const EditRecord = ({challengeId, recordId}) => (
   <View

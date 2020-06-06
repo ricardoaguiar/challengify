@@ -18,7 +18,7 @@
 }
 
 .radioButtonGroup button.selected {
-  background-color: hsl(195, 100%, 75%);
+  background-color: var(--highlight-color);
   cursor: default;
 }
 
