@@ -1,18 +1,12 @@
 import React, {useState} from 'react'
 
-import View from '../components/view/view'
-import InputField from '../components/inputField/inputField'
-import Gap from '../components/gap/gap'
-import RadioButtonGroup from '../components/radioButtonGroup/radioButtonGroup'
-import Columns from '../components/columns/columns'
+import View from '../../components/view/view'
+import InputField from '../../components/inputField/inputField'
+import Gap from '../../components/gap/gap'
+import RadioButtonGroup from '../../components/radioButtonGroup/radioButtonGroup'
+import Columns from '../../components/columns/columns'
 
-const getTodaysDate = () => {
-  const today = new Date()
-  const dd = `${today.getDate()}`.padStart(2, '0')
-  const mm = `${today.getMonth() + 1}`.padStart(2, '0')
-  const yyyy = today.getFullYear()
-  return `${yyyy}-${mm}-${dd}`
-}
+import {getTodaysDate} from './createChallenge.utility'
 
 const CreateChallenge = () => {
   const [title, onSetTitle] = useState('')
