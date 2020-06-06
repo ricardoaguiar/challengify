@@ -4,8 +4,9 @@ import {
   Columns,
   Gap,
   InputField,
-  View,
-  RadioButtonGroup
+  RadioButtonGroup,
+  Select,
+  View
 } from '../../components/components'
 
 import {
@@ -40,6 +41,7 @@ const CreateChallenge = () => {
   const [targetLimitValue, onSetTargetLimitValue] = useState(0)
   const [unitSingular, onSetUnitSingular] = useState('')
   const [unitPlural, onSetUnitPlural] = useState('')
+  const [period, onSetPeriod] = useState('week')
   return (
     <View
       title='Create new challenge'
@@ -175,6 +177,26 @@ const CreateChallenge = () => {
                 onSetUnitPlural(value)
               }}
             />
+          </div>
+          <div>
+            <Select
+              id='period'
+              label='period'
+              value={period}
+              onChange={({target: {value}}) => {
+                onSetPeriod(value)
+              }}
+            >
+              <option value="day">every day</option>
+              <option value="2day">every other day</option>
+              <option value="week">every week</option>
+              <option value="2week">every two weeks</option>
+              <option value="month">every month</option>
+              <option value="2month">every two months</option>
+              <option value="3month">every three months</option>
+              <option value="6month">every six months</option>
+              <option value="year">every year</option>
+            </Select>
           </div>
         </Columns>
       )}
