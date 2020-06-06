@@ -151,6 +151,7 @@ const CreateChallenge = () => {
               id='targetValue'
               label={(type === target) ? 'At least' : 'At most'}
               type='number'
+              min={0}
               value={targetLimitValue}
               onChange={({target: {value}}) => {
                 onSetTargetLimitValue(value)
