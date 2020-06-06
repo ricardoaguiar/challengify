@@ -1,10 +1,12 @@
 import React, {useState} from 'react'
 
-import View from '../../components/view/view'
-import InputField from '../../components/inputField/inputField'
-import Gap from '../../components/gap/gap'
-import RadioButtonGroup from '../../components/radioButtonGroup/radioButtonGroup'
-import Columns from '../../components/columns/columns'
+import {
+  Columns,
+  Gap,
+  InputField,
+  View,
+  RadioButtonGroup
+} from '../../components/components'
 
 import {getTodaysDate} from './createChallenge.utility'
 

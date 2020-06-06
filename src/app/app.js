@@ -1,8 +1,8 @@
 import React from 'react'
 import {Router, Link} from "@reach/router"
 
-import CreateChallenge from '../views/createChallenge/createChallenge'
-import View from '../components/view/view'
+import {CreateChallenge} from '../views/views'
+import {View} from '../components/components'
 import {
   createChallenge,
   getChallenges,
