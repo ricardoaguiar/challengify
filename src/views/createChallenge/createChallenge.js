@@ -70,13 +70,13 @@ const CreateChallenge = () => {
   const [startDate, onSetStartDate] = useState(getTodaysDate())
   const [endDate, onSetEndDate] = useState('')
   const [type, onSetType] = useState(target)
+  const [unitSingular, onSetUnitSingular] = useState('')
+  const [unitPlural, onSetUnitPlural] = useState('')
   // For Track
   const [initialValue, onSetInitialValue] = useState(0)
   const [trackValue, onSetTrackValue] = useState(0)
   // For Target and Limit
   const [targetLimitValue, onSetTargetLimitValue] = useState(0)
-  const [unitSingular, onSetUnitSingular] = useState('')
-  const [unitPlural, onSetUnitPlural] = useState('')
   const [period, onSetPeriod] = useState('week')
   return (
     <View
