@@ -6,4 +6,10 @@ const getTodaysDate = () => {
   return `${yyyy}-${mm}-${dd}`
 }
 
-export {getTodaysDate}
+const capitalizeString = string => {
+  const firstLetter = string.substring(0, 1)
+  const restOfString = string.substring(1)
+  return `${firstLetter.toUpperCase()}${restOfString}`
+}
+
+export {getTodaysDate, capitalizeString}
