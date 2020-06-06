@@ -33,6 +33,9 @@ const CreateChallenge = () => {
   const [startDate, onSetStartDate] = useState(getTodaysDate())
   const [endDate, onSetEndDate] = useState('')
   const [type, onSetType] = useState(target)
+  // For Track
+  const [initialValue, onSetInitialValue] = useState(0)
+  const [targetValue, onSetTargetValue] = useState(0)
   return (
     <View
       title='Create new challenge'
@@ -83,6 +86,33 @@ const CreateChallenge = () => {
           />
         </div>
       </Columns>
+      <Gap size='big' />
+      {(type === track) && (
+        <Columns gapSize='big'>
+          <div>
+            <InputField
+              id='initialValue'
+              label='Initial value'
+              type='number'
+              value={initialValue}
+              onChange={({target: {value}}) => {
+                onSetInitialValue(value)
+              }}
+            />
+          </div>
+          <div>
+            <InputField
+              id='targetValue'
+              label='Target value'
+              type='number'
+              value={targetValue}
+              onChange={({target: {value}}) => {
+                onSetTargetValue(value)
+              }}
+            />
+          </div>
+        </Columns>
+      )}
     </View>
   )
 }
