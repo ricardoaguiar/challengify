@@ -27,8 +27,3 @@ body {
   font-family: 'Poppins', sans-serif;
   color: hsl(0, 0%, 10%);
 }
-
-.fullSize {
-  height: 100%;
-  overflow: hidden;
-}
