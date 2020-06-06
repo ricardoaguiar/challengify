@@ -4,12 +4,24 @@
 }
 
 .radioButtonGroup button {
+  font-family: inherit;
+  font-size: 16px;
   flex-grow: 1;
-  padding: 8px;
+  padding: 12px 8px;
   cursor: pointer;
+  border: 0;
+  margin-right: 1px;
+}
+
+.radioButtonGroup button:last-child {
+  margin-right: 0;
 }
 
 .radioButtonGroup button.selected {
   background-color: hsl(195, 100%, 75%);
   cursor: default;
+}
+
+.radioButtonGroup button.selected:disabled {
+  color: inherit;
 }

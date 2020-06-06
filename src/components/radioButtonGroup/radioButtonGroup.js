@@ -11,6 +11,7 @@ const RadioButtonGroup = ({
       <button
         key={label}
         className={classNames({selected})}
+        disabled={selected}
       >
         {label}
       </button>
