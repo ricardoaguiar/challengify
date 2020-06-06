@@ -8,12 +8,31 @@ import {
   RadioButtonGroup
 } from '../../components/components'
 
-import {getTodaysDate} from './createChallenge.utility'
+import {
+  getTodaysDate,
+  capitalizeString
+} from './createChallenge.utility'
+
+const challengeTypes = {
+  target: 'target',
+  limit: 'limit',
+  track: 'track'
+}
+
+const {target, limit, track} = challengeTypes
+
+const getTypeOptions = () => (
+  [target, limit, track].map(type => ({
+    label: capitalizeString(type),
+    value: type
+  }))
+)
 
 const CreateChallenge = () => {
   const [title, onSetTitle] = useState('')
   const [startDate, onSetStartDate] = useState(getTodaysDate())
   const [endDate, onSetEndDate] = useState('')
+  const [type, onSetType] = useState(target)
   return (
     <View
       title='Create new challenge'
@@ -25,11 +44,9 @@ const CreateChallenge = () => {
       }}
     >
       <RadioButtonGroup
-        options={[
-          {label: 'Target', selected: true},
-          {label: 'Limit'},
-          {label: 'Track'}
-        ]}
+        options={getTypeOptions(type)}
+        value={type}
+        onChange={onSetType}
       />
       <Gap size='big' />
       <InputField
