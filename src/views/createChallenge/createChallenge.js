@@ -35,7 +35,11 @@ const CreateChallenge = () => {
   const [type, onSetType] = useState(target)
   // For Track
   const [initialValue, onSetInitialValue] = useState(0)
-  const [targetValue, onSetTargetValue] = useState(0)
+  const [trackValue, onSetTrackValue] = useState(0)
+  // For Target and Limit
+  const [targetLimitValue, onSetTargetLimitValue] = useState(0)
+  const [unitSingular, onSetUnitSingular] = useState('')
+  const [unitPlural, onSetUnitPlural] = useState('')
   return (
     <View
       title='Create new challenge'
@@ -88,26 +92,87 @@ const CreateChallenge = () => {
       </Columns>
       <Gap size='big' />
       {(type === track) && (
-        <Columns gapSize='big'>
+        <>
+          <Columns gapSize='big'>
+            <div>
+              <InputField
+                id='initialValue'
+                label={`Initial ${(unitPlural.length > 1) ? unitPlural : 'value'}`}
+                type='number'
+                value={initialValue}
+                onChange={({target: {value}}) => {
+                  onSetInitialValue(value)
+                }}
+              />
+            </div>
+            <div>
+              <InputField
+                id='targetValue'
+                label={`Target ${(unitPlural.length > 1) ? unitPlural : 'value'}`}
+                type='number'
+                value={trackValue}
+                onChange={({target: {value}}) => {
+                  onSetTrackValue(value)
+                }}
+              />
+            </div>
+            <div>
+              <InputField
+                id='unitSingular'
+                label='unit (singular)'
+                type='text'
+                value={unitSingular}
+                onChange={({target: {value}}) => {
+                  onSetUnitSingular(value)
+                }}
+                placeholder='E.g. push-up'
+              />
+              <Gap size='medium' />
+              <InputField
+                id='unitPlural'
+                label='unit (plural)'
+                type='text'
+                value={unitPlural}
+                onChange={({target: {value}}) => {
+                  onSetUnitPlural(value)
+                }}
+                placeholder='E.g. push-ups'
+              />
+            </div>
+          </Columns>
+        </>
+      )}
+      {[target, limit].includes(type) && (
+        <Columns>
           <div>
             <InputField
-              id='initialValue'
-              label='Initial value'
+              id='targetValue'
+              label={(type === target) ? 'At least' : 'At most'}
               type='number'
-              value={initialValue}
+              value={targetLimitValue}
               onChange={({target: {value}}) => {
-                onSetInitialValue(value)
+                onSetTargetLimitValue(value)
               }}
             />
           </div>
           <div>
             <InputField
-              id='targetValue'
-              label='Target value'
-              type='number'
-              value={targetValue}
+              id='unitSingular'
+              label='unit (singular)'
+              type='text'
+              value={unitSingular}
               onChange={({target: {value}}) => {
-                onSetTargetValue(value)
+                onSetUnitSingular(value)
+              }}
+            />
+            <Gap size='medium' />
+            <InputField
+              id='unitPlural'
+              label='unit (plural)'
+              type='text'
+              value={unitPlural}
+              onChange={({target: {value}}) => {
+                onSetUnitPlural(value)
               }}
             />
           </div>
