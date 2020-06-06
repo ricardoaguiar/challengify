@@ -6,28 +6,13 @@ import Gap from '../components/gap/gap'
 import RadioButtonGroup from '../components/radioButtonGroup/radioButtonGroup'
 import Columns from '../components/columns/columns'
 
-const CreateChallenge = () => (
-  <View
-    title='Create new challenge'
-    actions={{
-      left: {
-        to: '..',
-        text: 'Back'
-      }
-    }}
-  >
-    <RadioButtonGroup
-      options={[
-        {label: 'Target', selected: true},
-        {label: 'Limit'},
-        {label: 'Track'}
-      ]}
-    />
-    <Gap size='big' />
-    <InputField
-      id='newChallengeTitle'
-      label='Title'
-      placeholder='e.g. Smoke less'
+const getTodaysDate = () => {
+  const today = new Date()
+  const dd = `${today.getDate()}`.padStart(2, '0')
+  const mm = `${today.getMonth() + 1}`.padStart(2, '0')
+  const yyyy = today.getFullYear()
+  return `${yyyy}-${mm}-${dd}`
+}
     />
     <Gap size='big' />
     <Columns gapSize='big'>
