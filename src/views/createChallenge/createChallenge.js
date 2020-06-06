@@ -29,6 +29,42 @@ const getTypeOptions = () => (
   }))
 )
 
+const getTitlePlaceholder = type => {
+  if (type === target) {
+    return 'e.g. Read more'
+  }
+  if (type === limit) {
+    return 'e.g. Smoke less'
+  }
+  if (type === track) {
+    return 'e.g. Do 60 push-ups'
+  }
+}
+
+const getUnitSingularPlaceholder = type => {
+  if (type === target) {
+    return 'e.g. book'
+  }
+  if (type === limit) {
+    return 'e.g. cigarette'
+  }
+  if (type === track) {
+    return 'e.g. push-up'
+  }
+}
+
+const getUnitPluralPlaceholder = type => {
+  if (type === target) {
+    return 'e.g. books'
+  }
+  if (type === limit) {
+    return 'e.g. cigarettes'
+  }
+  if (type === track) {
+    return 'e.g. push-ups'
+  }
+}
+
 const CreateChallenge = () => {
   const [title, onSetTitle] = useState('')
   const [startDate, onSetStartDate] = useState(getTodaysDate())
@@ -61,7 +97,7 @@ const CreateChallenge = () => {
       <InputField
         id='newChallengeTitle'
         label='Title'
-        placeholder='e.g. Smoke less'
+        placeholder={getTitlePlaceholder(type)}
         value={title}
         onChange={({target: {value}}) => {
           onSetTitle(value)
@@ -127,7 +163,7 @@ const CreateChallenge = () => {
                 onChange={({target: {value}}) => {
                   onSetUnitSingular(value)
                 }}
-                placeholder='E.g. push-up'
+                placeholder={getUnitSingularPlaceholder(type)}
               />
               <Gap size='medium' />
               <InputField
@@ -138,7 +174,7 @@ const CreateChallenge = () => {
                 onChange={({target: {value}}) => {
                   onSetUnitPlural(value)
                 }}
-                placeholder='E.g. push-ups'
+                placeholder={getUnitPluralPlaceholder(type)}
               />
             </div>
           </Columns>
@@ -167,6 +203,7 @@ const CreateChallenge = () => {
               onChange={({target: {value}}) => {
                 onSetUnitSingular(value)
               }}
+              placeholder={getUnitSingularPlaceholder(type)}
             />
             <Gap size='medium' />
             <InputField
@@ -177,6 +214,7 @@ const CreateChallenge = () => {
               onChange={({target: {value}}) => {
                 onSetUnitPlural(value)
               }}
+              placeholder={getUnitPluralPlaceholder(type)}
             />
           </div>
           <div>
