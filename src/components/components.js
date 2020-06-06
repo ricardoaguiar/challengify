@@ -2,6 +2,7 @@ import Columns from './columns/columns'
 import Gap from './gap/gap'
 import InputField from './inputField/inputField'
 import RadioButtonGroup from './radioButtonGroup/radioButtonGroup'
+import Select from './select/select'
 import View from './view/view'
 
 export {
@@ -9,5 +10,6 @@ export {
   Gap,
   InputField,
   RadioButtonGroup,
+  Select,
   View
 }
