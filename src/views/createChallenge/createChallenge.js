@@ -6,7 +6,8 @@ import {
   InputField,
   RadioButtonGroup,
   Select,
-  Chrome
+  Chrome,
+  Button
 } from '../../components/components'
 
 import {
@@ -87,6 +88,13 @@ const CreateChallenge = () => {
           text: 'Back'
         }
       }}
+      actions={(
+        <>
+          <Button>Create challenge</Button>
+          <Gap size='small' direction='horizontal' />
+          <Button className='danger'>Discard</Button>
+        </>
+      )}
     >
       <RadioButtonGroup
         options={getTypeOptions(type)}
