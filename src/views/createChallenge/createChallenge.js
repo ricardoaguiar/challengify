@@ -6,7 +6,7 @@ import {
   InputField,
   RadioButtonGroup,
   Select,
-  View
+  Chrome
 } from '../../components/components'
 
 import {
@@ -79,7 +79,7 @@ const CreateChallenge = () => {
   const [targetLimitValue, onSetTargetLimitValue] = useState(0)
   const [period, onSetPeriod] = useState('week')
   return (
-    <View
+    <Chrome
       title='Create new challenge'
       actions={{
         left: {
@@ -239,7 +239,7 @@ const CreateChallenge = () => {
           </div>
         </Columns>
       )}
-    </View>
+    </Chrome>
   )
 }
 

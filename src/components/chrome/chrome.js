@@ -1,7 +1,7 @@
 import React from 'react'
 import {Link} from "@reach/router"
 
-import './view.css'
+import './chrome.css'
 
 const View = ({
   title,

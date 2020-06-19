@@ -3,7 +3,7 @@ import Gap from './gap/gap'
 import InputField from './inputField/inputField'
 import RadioButtonGroup from './radioButtonGroup/radioButtonGroup'
 import Select from './select/select'
-import View from './view/view'
+import Chrome from './chrome/chrome'
 
 export {
   Columns,
@@ -11,5 +11,5 @@ export {
   InputField,
   RadioButtonGroup,
   Select,
-  View
+  Chrome
 }
