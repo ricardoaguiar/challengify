@@ -12,12 +12,12 @@ html, body, #root {
 }
 
 #root {
-  max-width: 800px;
+  max-width: 600px;
   margin: 0 auto;
 
 }
 
-@media (min-width: 800px) {
+@media (min-width: 600px) {
   #root {
     box-shadow: 0 0 48px hsla(0, 0%, 0%, 25%), 0 0 8px hsla(0, 0%, 0%, 15%);
   }
