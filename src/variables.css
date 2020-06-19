@@ -1,3 +1,4 @@
 body {
-  --highlight-color: hsl(85, 100%, 75%);
+  --highlight-color: hsl(221, 100%, 85%);
+  --danger-color: hsl(0, 100%, 85%);
 }
