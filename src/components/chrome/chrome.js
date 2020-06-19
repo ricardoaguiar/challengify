@@ -5,26 +5,32 @@ import './chrome.css'
 
 const View = ({
   title,
+  links,
   actions,
   children
 }) => (
   <div className='view'>
     <header className='viewHeader'>
-      {(actions?.left?.to && actions?.left?.text) && (
-        <Link to={actions.left.to} >
-          {actions.left.text}
+      {(links?.left?.to && links?.left?.text) && (
+        <Link to={links.left.to} >
+          {links.left.text}
         </Link>
       )}
       <h1>{title}</h1>
-      {(actions?.right?.to && actions?.right?.text) && (
-        <Link to={actions.right.to} >
-          {actions.right.text}
+      {(links?.right?.to && links?.right?.text) && (
+        <Link to={links.right.to} >
+          {links.right.text}
         </Link>
       )}
     </header>
     <div className='viewContent'>
       {children}
     </div>
+    {actions && (
+      <footer className='viewActions'>
+        {actions}
+      </footer>
+    )}
   </div>
 )
 export default View

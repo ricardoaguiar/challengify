@@ -16,7 +16,7 @@ import {
 const EditRecord = ({challengeId, recordId}) => (
   <Chrome
     title={`Edit record ${recordId} of challenge ${challengeId}`}
-    actions={{
+    links={{
       left: {
         to: '../../..',
         text: 'Back'
@@ -37,7 +37,7 @@ const DeleteRecord = ({challengeId, recordId}) => (
 const ChallengeSettings = ({challengeId}) => (
   <Chrome
     title={`Challenge settings for ${challengeId}`}
-    actions={{
+    links={{
       left: {
         to: '..',
         text: 'Back'
@@ -58,7 +58,7 @@ const DeleteChallenge = ({challengeId}) => (
 const Challenge = ({challengeId}) => (
   <Chrome
     title={`Challenge ${challengeId}`}
-    actions={{
+    links={{
       left: {
         to: '..',
         text: 'Back'
@@ -103,7 +103,7 @@ const ChallengeRouter = ({challengeId}) => (
 const Challenges = () => (
   <Chrome
     title='Challenges'
-    actions={{
+    links={{
       right: {
         to: 'new',
         text: 'New'

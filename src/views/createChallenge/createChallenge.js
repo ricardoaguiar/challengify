@@ -81,7 +81,7 @@ const CreateChallenge = () => {
   return (
     <Chrome
       title='Create new challenge'
-      actions={{
+      links={{
         left: {
           to: '..',
           text: 'Back'
