@@ -1,6 +1,7 @@
 import Button from './button/button'
 import Chrome from './chrome/chrome'
 import Columns from './columns/columns'
+import ConfirmationDialog from './confirmationDialog/confirmationDialog'
 import Gap from './gap/gap'
 import InputField from './inputField/inputField'
 import Modal from './modal/modal'
@@ -11,6 +12,7 @@ export {
   Button,
   Chrome,
   Columns,
+  ConfirmationDialog,
   Gap,
   InputField,
   Modal,
