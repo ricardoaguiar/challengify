@@ -15,11 +15,7 @@ import {
   capitalizeString
 } from './createChallenge.utility'
 
-const challengeTypes = {
-  target: 'target',
-  limit: 'limit',
-  track: 'track'
-}
+import {challengeTypes} from '../../constants/constants'
 
 const {target, limit, track} = challengeTypes
 
