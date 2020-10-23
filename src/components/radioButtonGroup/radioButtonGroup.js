@@ -6,7 +6,8 @@ import './radioButtonGroup.css'
 const RadioButtonGroup = ({
   options,
   onChange,
-  value
+  value,
+  buttonTabIndex
 }) => (
   <div className='radioButtonGroup'>
     {options.map(({
@@ -24,6 +25,7 @@ const RadioButtonGroup = ({
               onChange(optionValue)
             }
           }}
+          tabIndex={buttonTabIndex}
         >
           {label}
         </button>
