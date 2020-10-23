@@ -38,22 +38,6 @@ const db = initializeDatabase()
 //   )
 // }
 
-// createChallenge({
-//   title: 'Test title',
-//   type: 'minimum',
-//   startTimestamp: Date.now(),
-//   endTimestamp: null,
-//   targetValue: 1,
-//   scheduling: {
-//     type: "weekly",
-//     times: 3
-//   },
-//   unit: {
-//     singular: "time",
-//     plural: "times"
-//   }
-// })
-
 const createChallenge = async ({
   title,
   type,
