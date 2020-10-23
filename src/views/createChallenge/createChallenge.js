@@ -231,13 +231,13 @@ const CreateChallenge = () => {
               }}
             >
               <option value="day">every day</option>
-              <option value="2day">every other day</option>
+              <option value="2days">every other day</option>
               <option value="week">every week</option>
-              <option value="2week">every two weeks</option>
+              <option value="2weeks">every two weeks</option>
               <option value="month">every month</option>
-              <option value="2month">every two months</option>
-              <option value="3month">every three months</option>
-              <option value="6month">every six months</option>
+              <option value="2months">every two months</option>
+              <option value="3months">every three months</option>
+              <option value="6months">every six months</option>
               <option value="year">every year</option>
             </Select>
           </div>
