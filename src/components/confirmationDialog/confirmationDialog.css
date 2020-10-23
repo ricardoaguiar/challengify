@@ -1,0 +1,11 @@
+.confirmationDialog {
+  background-color: white;
+  padding: 16px;
+}
+
+.confirmationDialog > .buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 36px;
+}

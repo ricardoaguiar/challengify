@@ -1,11 +1,23 @@
-.gap.small {
+.gap.vertical.small {
   height: 8px;
 }
 
-.gap.medium {
+.gap.vertical.medium {
   height: 16px;
 }
 
-.gap.big {
+.gap.vertical.big {
   height: 24px;
+}
+
+.gap.horizontal.small {
+  width: 8px;
+}
+
+.gap.horizontal.medium {
+  width: 16px;
+}
+
+.gap.horizontal.big {
+  width: 24px;
 }

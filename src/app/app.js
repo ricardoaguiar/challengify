@@ -1,15 +1,13 @@
 import React from 'react'
 import {Router, Link} from "@reach/router"
 
-import CreateChallenge from './views/createChallenge'
-import View from './components/view/view'
-
-import './app.css'
+import {CreateChallenge} from '../views/views'
+import {Chrome} from '../components/components'
 
 const EditRecord = ({challengeId, recordId}) => (
-  <View
+  <Chrome
     title={`Edit record ${recordId} of challenge ${challengeId}`}
-    actions={{
+    links={{
       left: {
         to: '../../..',
         text: 'Back'
@@ -17,7 +15,7 @@ const EditRecord = ({challengeId, recordId}) => (
     }}
   >
     <Link to='../delete'>Delete</Link>
-  </View>
+  </Chrome>
 )
 
 const DeleteRecord = ({challengeId, recordId}) => (
@@ -28,9 +26,9 @@ const DeleteRecord = ({challengeId, recordId}) => (
 )
 
 const ChallengeSettings = ({challengeId}) => (
-  <View
+  <Chrome
     title={`Challenge settings for ${challengeId}`}
-    actions={{
+    links={{
       left: {
         to: '..',
         text: 'Back'
@@ -38,7 +36,7 @@ const ChallengeSettings = ({challengeId}) => (
     }}
   >
     <Link to='../delete'>Delete</Link>
-  </View>
+  </Chrome>
 )
 
 const DeleteChallenge = ({challengeId}) => (
@@ -49,9 +47,9 @@ const DeleteChallenge = ({challengeId}) => (
 )
 
 const Challenge = ({challengeId}) => (
-  <View
+  <Chrome
     title={`Challenge ${challengeId}`}
-    actions={{
+    links={{
       left: {
         to: '..',
         text: 'Back'
@@ -70,7 +68,7 @@ const Challenge = ({challengeId}) => (
 
     <h3>Record 3</h3>
     <Link to='records/3/edit'>Edit</Link>
-  </View>
+  </Chrome>
 )
 
 const ChallengeRouter = ({challengeId}) => (
@@ -94,9 +92,9 @@ const ChallengeRouter = ({challengeId}) => (
 )
 
 const Challenges = () => (
-  <View
+  <Chrome
     title='Challenges'
-    actions={{
+    links={{
       right: {
         to: 'new',
         text: 'New'
@@ -106,7 +104,7 @@ const Challenges = () => (
     <Link to='id1'>Challenge 1</Link>
     <Link to='id2'>Challenge 2</Link>
     <Link to='id3'>Challenge 3</Link>
-  </View>
+  </Chrome>
 )
 
 const ChallengesRouter = () => (

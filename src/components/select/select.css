@@ -1,4 +1,4 @@
-.inputField input {
+.select select {
   width: 100%;
   display: block;
   padding: 8px;
@@ -6,6 +6,6 @@
   color: inherit;
 }
 
-.inputField label {
+.select label {
   cursor: pointer;
 }

@@ -1,0 +1,11 @@
+.button {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 0 16px;
+  cursor: pointer;
+  border: 0;
+}
+
+.button.danger {
+  background-color: var(--danger-color);
+}
