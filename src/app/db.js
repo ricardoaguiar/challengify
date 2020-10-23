@@ -11,30 +11,28 @@ const initializeDatabase = () => {
 
 const db = initializeDatabase()
 
-// getChallenges().then(console.log)
+// const getRecordsForChallenge = async challenge => {
+//   const records = await db
+//     .records
+//     .where('challengeId')
+//     .equals(challenge.id)
+//     .toArray()
+//   return {
+//     ...challenge,
+//     records
+//   }
+// }
 
-const getRecordsForChallenge = async challenge => {
-  const records = await db
-    .records
-    .where('challengeId')
-    .equals(challenge.id)
-    .toArray()
-  return {
-    ...challenge,
-    records
-  }
-}
-
-const getChallenges = async () => {
-  const challenges = await (
-    db
-      .challenges
-      .toArray()
-  )
-  return await Promise.all(
-    challenges.map(getRecordsForChallenge)
-  )
-}
+// const getChallenges = async () => {
+//   const challenges = await (
+//     db
+//       .challenges
+//       .toArray()
+//   )
+//   return await Promise.all(
+//     challenges.map(getRecordsForChallenge)
+//   )
+// }
 
 // createChallenge({
 //   title: 'Test title',
@@ -91,81 +89,81 @@ const createChallenge = async ({
 // })
 
 // updateChallenge
-const updateChallenge = async ({
-  id,
-  title,
-  type,
-  startTimestamp,
-  endTimestamp,
-  targetValue,
-  scheduling,
-  unit,
-  archived
-}) => await (
-  db.challenges.update(id, {
-    title,
-    type,
-    startTimestamp,
-    endTimestamp,
-    targetValue,
-    scheduling,
-    unit,
-    archived
-  })
-)
+// const updateChallenge = async ({
+//   id,
+//   title,
+//   type,
+//   startTimestamp,
+//   endTimestamp,
+//   targetValue,
+//   scheduling,
+//   unit,
+//   archived
+// }) => await (
+//   db.challenges.update(id, {
+//     title,
+//     type,
+//     startTimestamp,
+//     endTimestamp,
+//     targetValue,
+//     scheduling,
+//     unit,
+//     archived
+//   })
+// )
 
 // deleteChallenge({id: idToDelete})
 
 // deleteChallenge
-const deleteChallenge = async ({id}) => {
-  await db
-    .records
-    .where('challengeId')
-    .equals(id)
-    .delete()
-  return await (
-    db.challenges.delete(id)
-  )
-}
+// const deleteChallenge = async ({id}) => {
+//   await db
+//     .records
+//     .where('challengeId')
+//     .equals(id)
+//     .delete()
+//   return await (
+//     db.challenges.delete(id)
+//   )
+// }
 
 // createRecord
-const createRecord = async ({
-  challengeId,
-  timestamp,
-  value
-}) => await (
-  db.records.put({
-    challengeId,
-    timestamp,
-    value
-  })
-)
+// const createRecord = async ({
+//   challengeId,
+//   timestamp,
+//   value
+// }) => await (
+//   db.records.put({
+//     challengeId,
+//     timestamp,
+//     value
+//   })
+// )
 
 // updateRecord
-const updateRecord = async ({
-  id,
-  challengeId,
-  timestamp,
-  value
-}) => await (
-  db.records.update(id, {
-    challengeId,
-    timestamp,
-    value
-  })
-)
+// const updateRecord = async ({
+//   id,
+//   challengeId,
+//   timestamp,
+//   value
+// }) => await (
+//   db.records.update(id, {
+//     challengeId,
+//     timestamp,
+//     value
+//   })
+// )
 
 // deleteRecord
-const deleteRecord = async ({id}) => await (
-  db.records.delete(id)
-)
+// const deleteRecord = async ({id}) => await (
+//   db.records.delete(id)
+// )
 
 export {
-  createChallenge,
-  getChallenges,
-  updateChallenge,
-  deleteChallenge,
-  createRecord,
-  updateRecord,
-  deleteRecord
+  createChallenge
+  // getChallenges,
+  // updateChallenge,
+  // deleteChallenge,
+  // createRecord,
+  // updateRecord,
+  // deleteRecord
 }
