@@ -8,29 +8,33 @@ const View = ({
   links,
   actions,
   children
-}) => (
-  <div className='view'>
-    <header className='viewHeader'>
-      {(links?.left?.to && links?.left?.text) && (
-        <Link to={links.left.to} >
-          {links.left.text}
-        </Link>
+}) => {
+  const {text: leftLinkText, ...leftLinkProps} = links.left ?? {}
+  const {text: rightLinkText, ...rightLinkProps} = links.right ?? {}
+  return (
+    <div className='view'>
+      <header className='viewHeader'>
+        {(leftLinkProps?.to && leftLinkText) && (
+          <Link {...leftLinkProps}>
+            {leftLinkText}
+          </Link>
+        )}
+        <h1>{title}</h1>
+        {(rightLinkProps?.to && rightLinkText) && (
+          <Link {...rightLinkProps}>
+            {rightLinkText}
+          </Link>
+        )}
+      </header>
+      <div className='viewContent'>
+        {children}
+      </div>
+      {actions && (
+        <footer className='viewActions'>
+          {actions}
+        </footer>
       )}
-      <h1>{title}</h1>
-      {(links?.right?.to && links?.right?.text) && (
-        <Link to={links.right.to} >
-          {links.right.text}
-        </Link>
-      )}
-    </header>
-    <div className='viewContent'>
-      {children}
     </div>
-    {actions && (
-      <footer className='viewActions'>
-        {actions}
-      </footer>
-    )}
-  </div>
-)
+  )
+}
 export default View
