@@ -15,6 +15,8 @@ import {
   capitalizeString
 } from './createChallenge.utility'
 
+import {createChallenge} from '../../app/db'
+
 import {challengeTypes} from '../../constants/constants'
 
 const {target, limit, track} = challengeTypes
@@ -86,7 +88,30 @@ const CreateChallenge = () => {
       }}
       actions={(
         <>
-          <Button>Create challenge</Button>
+          <Button
+            onClick={async () => {
+              await createChallenge({
+                title,
+                type,
+                startTimestamp: new Date(startDate).getTime(),
+                endTimestamp: (endDate === "") ? null : new Date(endDate).getTime(),
+                unit: {
+                  singular: unitSingular,
+                  plural: unitPlural
+                },
+                ...((type === track) && {
+                  initialValue: Number(initialValue),
+                  trackValue: Number(trackValue)
+                }),
+                ...([target, limit].includes(type) && {
+                  targetValue: Number(targetLimitValue),
+                  period: Number(period)
+                })
+              })
+            }}
+          >
+            Create challenge
+          </Button>
           <Gap size='small' direction='horizontal' />
           <Button className='danger'>Discard</Button>
         </>
