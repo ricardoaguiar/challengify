@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 
+import {navigate} from "@reach/router"
+
 import {
   Columns,
   Gap,
@@ -108,6 +110,7 @@ const CreateChallenge = () => {
                   period: Number(period)
                 })
               })
+              navigate('/challenges/')
             }}
           >
             Create challenge
