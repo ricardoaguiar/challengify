@@ -9,7 +9,9 @@ import {
   RadioButtonGroup,
   Select,
   Chrome,
-  Button
+  Button,
+  ConfirmationDialog,
+  Modal
 } from '../../components/components'
 
 import {
@@ -79,13 +81,20 @@ const CreateChallenge = () => {
   // For Target and Limit
   const [targetLimitValue, onSetTargetLimitValue] = useState(0)
   const [period, onSetPeriod] = useState('week')
+
+  const [isDiscardDialogVisible, onSetIsDiscardDialogVisible] = useState(false);
   return (
     <Chrome
       title='Create new challenge'
       links={{
         left: {
           to: '..',
-          text: 'Back'
+          text: 'Back',
+          onClick: event => {
+            event.preventDefault()
+            onSetIsDiscardDialogVisible(true)
+          },
+          tabIndex: isDiscardDialogVisible ? -1 : 0
         }
       }}
       actions={(
@@ -112,18 +121,44 @@ const CreateChallenge = () => {
               })
               navigate('/challenges/')
             }}
+            tabIndex={isDiscardDialogVisible ? -1 : 0}
           >
             Create challenge
           </Button>
           <Gap size='small' direction='horizontal' />
-          <Button className='danger'>Discard</Button>
+          <Button
+            onClick={() => {
+              onSetIsDiscardDialogVisible(true)
+            }}
+            className='danger'
+            tabIndex={isDiscardDialogVisible ? -1 : 0}
+          >
+            Discard
+          </Button>
         </>
       )}
     >
+      {isDiscardDialogVisible && (
+        <Modal>
+          <ConfirmationDialog
+            confirmLabel='Discard'
+            onConfirm={() => {
+              navigate('/challenges/')
+            }}
+            onCancel={() => {
+              onSetIsDiscardDialogVisible(false)
+            }}
+          >
+            <p>Are you sure you want to discard this challenge?</p>
+            <p>Your changes will be permanently lost.</p>
+          </ConfirmationDialog>
+        </Modal>
+      )}
       <RadioButtonGroup
         options={getTypeOptions(type)}
         value={type}
         onChange={onSetType}
+        buttonTabIndex={isDiscardDialogVisible ? -1 : 0}
       />
       <Gap size='big' />
       <InputField
@@ -134,6 +169,7 @@ const CreateChallenge = () => {
         onChange={({target: {value}}) => {
           onSetTitle(value)
         }}
+        tabIndex={isDiscardDialogVisible ? -1 : 0}
       />
       <Gap size='big' />
       <Columns gapSize='big'>
@@ -146,6 +182,7 @@ const CreateChallenge = () => {
             onChange={({target: {value}}) => {
               onSetStartDate(value)
             }}
+            tabIndex={isDiscardDialogVisible ? -1 : 0}
           />
         </div>
         <div>
@@ -157,6 +194,7 @@ const CreateChallenge = () => {
             onChange={({target: {value}}) => {
               onSetEndDate(value)
             }}
+            tabIndex={isDiscardDialogVisible ? -1 : 0}
           />
         </div>
       </Columns>
@@ -173,6 +211,7 @@ const CreateChallenge = () => {
                 onChange={({target: {value}}) => {
                   onSetInitialValue(value)
                 }}
+                tabIndex={isDiscardDialogVisible ? -1 : 0}
               />
             </div>
             <div>
@@ -184,6 +223,7 @@ const CreateChallenge = () => {
                 onChange={({target: {value}}) => {
                   onSetTrackValue(value)
                 }}
+                tabIndex={isDiscardDialogVisible ? -1 : 0}
               />
             </div>
             <div>
@@ -196,6 +236,7 @@ const CreateChallenge = () => {
                   onSetUnitSingular(value)
                 }}
                 placeholder={getUnitSingularPlaceholder(type)}
+                tabIndex={isDiscardDialogVisible ? -1 : 0}
               />
               <Gap size='medium' />
               <InputField
@@ -207,6 +248,7 @@ const CreateChallenge = () => {
                   onSetUnitPlural(value)
                 }}
                 placeholder={getUnitPluralPlaceholder(type)}
+                tabIndex={isDiscardDialogVisible ? -1 : 0}
               />
             </div>
           </Columns>
@@ -224,6 +266,7 @@ const CreateChallenge = () => {
               onChange={({target: {value}}) => {
                 onSetTargetLimitValue(value)
               }}
+              tabIndex={isDiscardDialogVisible ? -1 : 0}
             />
           </div>
           <div>
@@ -236,6 +279,7 @@ const CreateChallenge = () => {
                 onSetUnitSingular(value)
               }}
               placeholder={getUnitSingularPlaceholder(type)}
+              tabIndex={isDiscardDialogVisible ? -1 : 0}
             />
             <Gap size='medium' />
             <InputField
@@ -247,6 +291,7 @@ const CreateChallenge = () => {
                 onSetUnitPlural(value)
               }}
               placeholder={getUnitPluralPlaceholder(type)}
+              tabIndex={isDiscardDialogVisible ? -1 : 0}
             />
           </div>
           <div>
@@ -257,6 +302,7 @@ const CreateChallenge = () => {
               onChange={({target: {value}}) => {
                 onSetPeriod(value)
               }}
+              tabIndex={isDiscardDialogVisible ? -1 : 0}
             >
               <option value="day">every day</option>
               <option value="2days">every other day</option>
