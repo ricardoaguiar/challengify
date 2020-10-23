@@ -1,5 +1,9 @@
 import Dexie from 'dexie'
 
+import {challengeTypes} from '../constants/constants'
+
+const {target, limit, track} = challengeTypes
+
 const initializeDatabase = () => {
   const db = new Dexie('challengify')
   db.version(1).stores({
@@ -55,19 +59,34 @@ const createChallenge = async ({
   type,
   startTimestamp,
   endTimestamp,
+  unit: {
+    singular,
+    plural
+  },
+  initialValue,
+  trackValue,
   targetValue,
-  scheduling,
-  unit
+  period
 }) => await (
   db.challenges.put({
-      title,
-      type,
-      startTimestamp,
-      endTimestamp,
+    title,
+    type,
+    startTimestamp,
+    endTimestamp,
+    unit: {
+      singular,
+      plural
+    },
+    ...((type === track) && {
+      initialValue,
+      trackValue
+    }),
+    ...([target, limit].includes(type) && {
       targetValue,
-      scheduling,
-      unit,
-      archived: 0
+      period
+    }),
+    completed: false,
+    archived: false
   })
 )
 
