@@ -116,7 +116,7 @@ const CreateChallenge = () => {
                 }),
                 ...([target, limit].includes(type) && {
                   targetValue: Number(targetLimitValue),
-                  period: Number(period)
+                  period
                 })
               })
               navigate('/challenges/')
