@@ -115,9 +115,18 @@ const ChallengesRouter = () => (
   </Router>
 )
 
+const Splash = () => (
+  <p path="/">
+    <Link to='challenges'>Go to /challenges</Link>
+    {' '}
+    to see the app
+  </p>
+)
+
 const App = () => (
   <Router className='fullSize'>
     <ChallengesRouter path="challenges/*" />
+    <Splash path="/" />
   </Router>
 )
 

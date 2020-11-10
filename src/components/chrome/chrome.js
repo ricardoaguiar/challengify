@@ -3,7 +3,7 @@ import {Link} from "@reach/router"
 
 import './chrome.css'
 
-const View = ({
+const Chrome = ({
   title,
   links,
   actions,
@@ -37,4 +37,5 @@ const View = ({
     </div>
   )
 }
-export default View
+
+export default Chrome
