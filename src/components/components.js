@@ -1,5 +1,6 @@
 import Button from "./button/button";
 import ChallengeSettingsForm from "./challengeSettingsForm/challengeSettingsForm";
+import ChallengeWidget from "./challengeWidget/challengeWidget";
 import Chrome from "./chrome/chrome";
 import Columns from "./columns/columns";
 import ConfirmationDialog from "./confirmationDialog/confirmationDialog";
@@ -12,6 +13,7 @@ import Select from "./select/select";
 export {
   Button,
   ChallengeSettingsForm,
+  ChallengeWidget,
   Chrome,
   Columns,
   ConfirmationDialog,
