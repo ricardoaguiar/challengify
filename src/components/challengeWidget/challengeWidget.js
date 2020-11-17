@@ -1,7 +1,7 @@
 //import logo from './logo.svg';
 import React from 'react';
 //import fontawesome from '.Components/fontawesome';
-import './App.css';
+import './challengeWidget.css';
 
 function App() {
   return (
