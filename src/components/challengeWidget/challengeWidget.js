@@ -3,10 +3,10 @@ import React from "react";
 
 import "./challengeWidget.css";
 
-const ChallengeWidget = () => (
+const ChallengeWidget = ({ title, linkTo = "#" }) => (
   <div className="challengeWidget">
-    <Link to="#">
-      <h1>Read more in 2021</h1>
+    <Link to={linkTo}>
+      <h1>{title}</h1>
     </Link>
     <div className="cup">
       <button>+</button>
