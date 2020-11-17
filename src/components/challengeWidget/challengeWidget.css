@@ -1,0 +1,33 @@
+.App {
+    width: 700px;
+    height: 250px;
+    border: 15px solid burlywood;
+    background-color: white;
+  }
+  
+  
+  h1 {
+    color: black;
+    font-family: sans-serif;
+  }
+  p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .first_button {
+    float: right;
+    padding: 5px;
+  }
+  .paragraph {
+    font-family: serif;
+  }
+  .cup {
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .curcles{
+    display: inline;
+    display: flex;
+    padding: 2px;
+    justify-content: space-between;
+    border-radius: 50%;
+  }
