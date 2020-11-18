@@ -3,12 +3,13 @@ import React from "react";
 
 import "./challengeWidget.css";
 
-const ChallengeWidget = ({ title, linkTo = "#" }) => (
+const ChallengeWidget = ({ title, label, linkTo = "#" }) => (
   <div className="challengeWidget">
     <Link to={linkTo}>
       <h1>{title}</h1>
+      <Link to={label} />
     </Link>
-    <div className="cup">
+    <div className="status">
       <button>+</button>
     </div>
     <div className="first_button">

@@ -6,6 +6,7 @@ import Columns from "./columns/columns";
 import ConfirmationDialog from "./confirmationDialog/confirmationDialog";
 import Gap from "./gap/gap";
 import InputField from "./inputField/inputField";
+import Label from "./label/label";
 import Modal from "./modal/modal";
 import RadioButtonGroup from "./radioButtonGroup/radioButtonGroup";
 import Select from "./select/select";
@@ -19,6 +20,7 @@ export {
   ConfirmationDialog,
   Gap,
   InputField,
+  Label,
   Modal,
   RadioButtonGroup,
   Select,

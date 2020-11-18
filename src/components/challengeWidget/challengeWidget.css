@@ -9,7 +9,7 @@
   font-family: inherit;
 }
 .discription {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: inherit;
 }
 .first_button {
   float: right;
@@ -18,9 +18,11 @@
 .p {
   font-family: inherit;
 }
-.cup {
+.status {
   border-radius: 50%;
   display: inline-block;
+  padding: 2px;
+  background-color: lightsalmon;
 }
 .circules {
   display: inline;
