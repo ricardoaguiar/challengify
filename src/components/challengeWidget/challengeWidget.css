@@ -1,29 +1,28 @@
 .challengeWidget {
-  width: 700px;
-  height: 250px;
-  border: 15px solid burlywood;
+  width: 100%;
+  border: 1px solid burlywood;
   background-color: white;
 }
 
-h1 {
+.challengeWidget h2 {
   color: black;
-  font-family: sans-serif;
+  font-family: inherit;
 }
-p {
+.discription {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .first_button {
   float: right;
   padding: 5px;
 }
-.paragraph {
-  font-family: serif;
+.p {
+  font-family: inherit;
 }
 .cup {
   border-radius: 50%;
   display: inline-block;
 }
-.curcles {
+.circules {
   display: inline;
   display: flex;
   padding: 2px;
