@@ -6,18 +6,9 @@ import "./challengeWidget.css";
 const ChallengeWidget = ({ title, label, linkTo = "#" }) => (
   <div className="challengeWidget">
     <Link to={linkTo}>
-      <h1>{title}</h1>
-      <Link to={label} />
+      <h2>{title}</h2>
     </Link>
-    <div className="status">
-      <button>+</button>
-    </div>
-    <div className="Challenge_tags">
-      <button>Learning</button>
-      <button>Ny resolutions</button>
-    </div>
-
-    <div className="discription">
+    <div className="description">
       <p>
         read at least two books every month <br></br>
         from 21 January 2021 until 31 December 2021

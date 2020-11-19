@@ -8,25 +8,16 @@
   color: black;
   font-family: inherit;
 }
-.discription {
+.challengeWidget .description {
   font-family: inherit;
 }
-.Challenge_tags {
+.challengeWidget .challenge_tags {
   float: right;
-  padding: 5px;
+  padding: 2px;
+  margin: 2px;
+  background-color: lightseagreen;
+  margin-top: 20px;
 }
-.discription {
+.challengeWidget .description {
   font-family: inherit;
-}
-.status {
-  border-radius: 50%;
-  display: inline-block;
-  padding: 2px;
-  background-color: lightsalmon;
-}
-.markers {
-  display: inline;
-  padding: 2px;
-  justify-content: space-between;
-  border-radius: 50%;
 }
