@@ -12,7 +12,7 @@ const ChallengeWidget = ({ title, label, linkTo = "#" }) => (
     <div className="status">
       <button>+</button>
     </div>
-    <div className="first_button">
+    <div className="Challenge_tags">
       <button>Learning</button>
       <button>Ny resolutions</button>
     </div>
