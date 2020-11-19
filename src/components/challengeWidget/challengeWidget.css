@@ -15,7 +15,7 @@
   float: right;
   padding: 5px;
 }
-.p {
+.discription {
   font-family: inherit;
 }
 .status {
@@ -24,9 +24,8 @@
   padding: 2px;
   background-color: lightsalmon;
 }
-.circules {
+.markers {
   display: inline;
-  display: flex;
   padding: 2px;
   justify-content: space-between;
   border-radius: 50%;

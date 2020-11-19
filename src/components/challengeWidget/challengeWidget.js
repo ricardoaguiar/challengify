@@ -24,7 +24,7 @@ const ChallengeWidget = ({ title, label, linkTo = "#" }) => (
       </p>
     </div>
 
-    <div className="circules">
+    <div className="markers">
       <button>3</button>
       <button>1</button>
       <button>3</button>
