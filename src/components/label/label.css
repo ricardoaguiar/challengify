@@ -1,0 +1,18 @@
+form {
+  padding: 2px;
+  margin: 2px;
+  font-family: inherit;
+  float: right;
+  background-color: mediumturquoise;
+}
+.challenge_status {
+  border: 0.1rem solid black;
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+}

@@ -4,20 +4,33 @@
   background-color: white;
 }
 
-.challengeWidget h2 {
+.challengeWidget,
+h2 {
   color: black;
   font-family: inherit;
 }
-.challengeWidget .description {
+.challengeWidget,
+.description {
   font-family: inherit;
 }
-.challengeWidget .challenge_tags {
+.challengeWidget,
+.description {
+  font-family: inherit;
+}
+button {
+  border: 0.1rem solid black;
+  display: inline-flex;
+  padding: 1rem;
+  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  border-radius: 50%;
+  height: 3rem;
+  width: 3rem;
+}
+.current_period {
   float: right;
-  padding: 2px;
-  margin: 2px;
-  background-color: lightseagreen;
-  margin-top: 20px;
-}
-.challengeWidget .description {
-  font-family: inherit;
+  height: 5rem;
+  width: 5rem;
 }
