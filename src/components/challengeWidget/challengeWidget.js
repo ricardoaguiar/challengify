@@ -1,6 +1,8 @@
 import { Link } from "@reach/router";
 import React from "react";
 
+import { Label } from '../components'
+
 import "./challengeWidget.css";
 
 const ChallengeWidget = ({ title, label, linkTo = "#" }) => (
@@ -8,6 +10,9 @@ const ChallengeWidget = ({ title, label, linkTo = "#" }) => (
     <Link to={linkTo}>
       <h2>{title}</h2>
     </Link>
+    <Label name="Learning" color="#ccfffe" />
+    <Label name="NY Resolutions" color="#feffcb" />
+    <Label name="Fitness" color="#ffccff" />
     <div className="description">
       <p>
         read at least two books every month <br></br>
