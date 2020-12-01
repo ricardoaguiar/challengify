@@ -14,6 +14,9 @@ const ChallengeWidget = ({ title, label, linkTo = "#" }) => (
         from 21 January 2021 until 31 December 2021
       </p>
     </div>
+    <div>
+      <button className="current_period">+</button>
+    </div>
     <div className="markers">
       <button>3</button>
       <button>1</button>
@@ -21,9 +24,6 @@ const ChallengeWidget = ({ title, label, linkTo = "#" }) => (
       <button>2</button>
       <button>0</button>
       <button>3</button>
-      <div>
-        <button className="current_period">+</button>
-      </div>
     </div>
   </div>
 );
