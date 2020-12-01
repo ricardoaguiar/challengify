@@ -94,9 +94,9 @@ const Challenges = () => (
     <ChallengeWidget linkTo="id1" title="challenge 1" />
     <ChallengeWidget linkTo="id2" title="challenge 2" />
     <ChallengeWidget linkTo="id3" title="challenge 3" />
-    <Label linkTo="id1" title="challenge 1" />
-    <Label linkTo="id2" title="challenge 2" />
-    <Label linkTo="id3" title="challenge 3" />
+    <Label name="Learning" color="#ccfffe" />
+    <Label name="NY Resolutions" color="#feffcb" />
+    <Label name="Fitness" color="#ffccff" />
   </Chrome>
 );
 
