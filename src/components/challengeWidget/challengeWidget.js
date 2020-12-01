@@ -5,14 +5,14 @@ import { Label } from '../components'
 
 import "./challengeWidget.css";
 
-const ChallengeWidget = ({ title, label, linkTo = "#" }) => (
+const ChallengeWidget = ({ title, labels, linkTo = "#" }) => (
   <div className="challengeWidget">
     <Link to={linkTo}>
       <h2>{title}</h2>
     </Link>
-    <Label name="Learning" color="#ccfffe" />
-    <Label name="NY Resolutions" color="#feffcb" />
-    <Label name="Fitness" color="#ffccff" />
+    {labels.map(label => (
+      <Label name={label.name} color={label.color} />
+    ))}
     <div className="description">
       <p>
         read at least two books every month <br></br>
