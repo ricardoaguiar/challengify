@@ -7,12 +7,18 @@ import "./challengeWidget.css";
 
 const ChallengeWidget = ({ title, labels, linkTo = "#" }) => (
   <div className="challengeWidget">
-    <Link to={linkTo}>
-      <h2>{title}</h2>
-    </Link>
-    {labels.map(({name, color}) => (
-      <Label name={name} color={color} />
-    ))}
+    <header>
+      <div className="title">
+        <Link to={linkTo}>
+          <h2>{title}</h2>
+        </Link>
+      </div>
+      <div className="labels">
+        {labels.map(({name, color}) => (
+          <Label name={name} color={color} />
+        ))}
+      </div>
+    </header>
     <div className="description">
       <p>
         read at least two books every month <br></br>

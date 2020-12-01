@@ -4,6 +4,20 @@
   background-color: white;
 }
 
+.challengeWidget header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.challengeWidget header .title {
+}
+
+.challengeWidget header .label {
+}
+
+
+
+
 .challengeWidget,
 h2 {
   color: black;
