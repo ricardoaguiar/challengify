@@ -2,6 +2,8 @@
   width: 100%;
   border: 1px solid burlywood;
   background-color: white;
+  padding: 12px;
+  margin-bottom: 12px;
 }
 
 .challengeWidget header {
@@ -10,37 +12,32 @@
 }
 
 .challengeWidget header .title {
+  display: flex;
 }
 
-.challengeWidget header .label {
-}
-
-
-
-
-.challengeWidget,
-h2 {
+.challengeWidget header .title h2 {
   color: black;
-  font-family: inherit;
 }
-.challengeWidget,
-.description {
-  font-family: inherit;
-}
-button {
-  border: 0.1rem solid black;
-  display: inline-flex;
-  padding: 1rem;
-  justify-content: space-between;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
+
+.challengeWidget header .title .statusIcon {
+  width: 32px;
+  height: 32px;
+  background-color: aquamarine;
   border-radius: 50%;
-  height: 3rem;
-  width: 3rem;
+  border: 1px solid gray;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.current_period {
-  float: right;
-  height: 3rem;
-  width: 3rem;
+
+.challengeWidget .markers {
+}
+
+.challengeWidget .markers .marker {
+}
+
+.challengeWidget .markers .currentPeriod {
+  height: 6rem;
+  width: 6rem;
 }

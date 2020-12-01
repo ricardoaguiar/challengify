@@ -12,6 +12,7 @@ const ChallengeWidget = ({ title, labels, linkTo = "#" }) => (
         <Link to={linkTo}>
           <h2>{title}</h2>
         </Link>
+        <span className="statusIcon">✔</span>
       </div>
       <div className="labels">
         {labels.map(({name, color}) => (
@@ -19,22 +20,18 @@ const ChallengeWidget = ({ title, labels, linkTo = "#" }) => (
         ))}
       </div>
     </header>
-    <div className="description">
-      <p>
-        read at least two books every month <br></br>
-        from 21 January 2021 until 31 December 2021
-      </p>
-    </div>
-    <div>
-      <button className="current_period">+</button>
-    </div>
+    <p className="description">
+      read at least two books every month <br></br>
+      from 21 January 2021 until 31 December 2021
+    </p>
     <div className="markers">
-      <button>3</button>
-      <button>1</button>
-      <button>3</button>
-      <button>2</button>
-      <button>0</button>
-      <button>3</button>
+      <span className="marker">3</span>
+      <span className="marker">1</span>
+      <span className="marker">3</span>
+      <span className="marker">2</span>
+      <span className="marker">0</span>
+      <span className="marker">3</span>
+      <button className="currentPeriod">+</button>
     </div>
   </div>
 );
