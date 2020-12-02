@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 
 import {navigate} from "@reach/router"
 
@@ -14,10 +14,9 @@ import {
   Modal
 } from '../../components/components'
 
-import {
-  getTodaysDate,
-  capitalizeString
-} from './createChallenge.utility'
+import {capitalizeString} from './createChallenge.utility'
+
+import {useFormState, useDiscardDialogVisibility} from './createChallenge.hooks'
 
 import {createChallenge} from '../../app/db'
 
@@ -69,20 +68,34 @@ const getUnitPluralPlaceholder = type => {
 }
 
 const CreateChallenge = () => {
-  const [title, onSetTitle] = useState('')
-  const [startDate, onSetStartDate] = useState(getTodaysDate())
-  const [endDate, onSetEndDate] = useState('')
-  const [type, onSetType] = useState(target)
-  const [unitSingular, onSetUnitSingular] = useState('')
-  const [unitPlural, onSetUnitPlural] = useState('')
-  // For Track
-  const [initialValue, onSetInitialValue] = useState(0)
-  const [trackValue, onSetTrackValue] = useState(0)
-  // For Target and Limit
-  const [targetLimitValue, onSetTargetLimitValue] = useState(0)
-  const [period, onSetPeriod] = useState('week')
+  const {
+    title,
+    startDate,
+    endDate,
+    type,
+    unitSingular,
+    unitPlural,
+    initialValue,
+    trackValue,
+    targetLimitValue,
+    period,
+    onSetTitle,
+    onSetStartDate,
+    onSetEndDate,
+    onSetType,
+    onSetUnitSingular,
+    onSetUnitPlural,
+    onSetInitialValue,
+    onSetTrackValue,
+    onSetTargetLimitValue,
+    onSetPeriod
+  } = useFormState()
 
-  const [isDiscardDialogVisible, onSetIsDiscardDialogVisible] = useState(false);
+  const {
+    isDiscardDialogVisible,
+    onSetIsDiscardDialogVisible
+  } = useDiscardDialogVisibility()
+
   return (
     <Chrome
       title='Create new challenge'
