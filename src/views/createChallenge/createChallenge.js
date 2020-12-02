@@ -9,10 +9,10 @@ import {
   RadioButtonGroup,
   Select,
   Chrome,
-  Button,
-  ConfirmationDialog,
-  Modal
+  Button
 } from '../../components/components'
+
+import DiscardDialog from './discardDialog/discardDialog'
 
 import {capitalizeString} from './createChallenge.utility'
 
@@ -152,20 +152,11 @@ const CreateChallenge = () => {
       )}
     >
       {isDiscardDialogVisible && (
-        <Modal>
-          <ConfirmationDialog
-            confirmLabel='Discard'
-            onConfirm={() => {
-              navigate('/challenges/')
-            }}
-            onCancel={() => {
-              onSetIsDiscardDialogVisible(false)
-            }}
-          >
-            <p>Are you sure you want to discard this challenge?</p>
-            <p>Your changes will be permanently lost.</p>
-          </ConfirmationDialog>
-        </Modal>
+        <DiscardDialog
+          onHide={() => {
+            onSetIsDiscardDialogVisible(false)
+          }}
+        />
       )}
       <RadioButtonGroup
         options={getTypeOptions(type)}
