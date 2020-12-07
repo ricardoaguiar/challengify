@@ -1,5 +1,6 @@
 .challengeWidget {
   width: 100%;
+  height: 50%;
   border: 1px solid burlywood;
   background-color: white;
   padding: 12px;
@@ -32,13 +33,13 @@
 }
 
 .challengeWidget .markers {
+  font-family: inherit;
 }
 
 .challengeWidget .markers .marker {
   display: inline-flex;
   flex-direction: row;
-  padding: 8px;
-  margin: 8px;
+  border-radius: 50%;
 }
 
 .challengeWidget .markers .currentPeriod {
@@ -46,4 +47,30 @@
   width: 6rem;
   justify-content: space-between;
   border-radius: 50%;
+}
+span {
+  display: block;
+  height: 3rem;
+  width: 3rem;
+  line-height: 3rem;
+
+  -moz-border-radius: 30px;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgrey;
+  color: black;
+  text-align: center;
+  font-size: 1em;
+  padding: 12px;
+  margin: 12px;
+  margin-left: 0px;
+}
+.months {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 2px;
+}
+.currentPeriod {
+  float: right;
 }
