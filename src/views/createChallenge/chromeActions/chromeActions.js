@@ -10,7 +10,7 @@ import { challengeTypes } from "../../../constants/constants";
 
 const { target, limit, track } = challengeTypes;
 
-const CreateChallenge = ({
+const ChromeActions = ({
   formData,
   isDiscardDialogVisible,
   onShowDiscardDialog,
@@ -68,4 +68,4 @@ const CreateChallenge = ({
   );
 };
 
-export default CreateChallenge;
+export default ChromeActions;

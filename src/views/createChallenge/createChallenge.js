@@ -4,7 +4,6 @@ import {
   Columns,
   Gap,
   InputField,
-  RadioButtonGroup,
   Select,
   Chrome,
 } from "../../components/components";
@@ -13,7 +12,7 @@ import DiscardDialog from "./discardDialog/discardDialog";
 
 import ChromeActions from "./chromeActions/chromeActions";
 
-import { capitalizeString } from "./createChallenge.utility";
+import ChallengeTypeSelector from "./challengeTypeSelector/challengeTypeSelector";
 
 import {
   useFormState,
@@ -23,12 +22,6 @@ import {
 import { challengeTypes } from "../../constants/constants";
 
 const { target, limit, track } = challengeTypes;
-
-const getTypeOptions = () =>
-  [target, limit, track].map((type) => ({
-    label: capitalizeString(type),
-    value: type,
-  }));
 
 const getTitlePlaceholder = (type) => {
   if (type === target) {
@@ -130,11 +123,10 @@ const CreateChallenge = () => {
       }
     >
       {isDiscardDialogVisible && <DiscardDialog onHide={onHideDiscardDialog} />}
-      <RadioButtonGroup
-        options={getTypeOptions(type)}
-        value={type}
-        onChange={onSetType}
-        buttonTabIndex={isDiscardDialogVisible ? -1 : 0}
+      <ChallengeTypeSelector
+        type={type}
+        onSetType={onSetType}
+        canHaveFocus={isDiscardDialogVisible}
       />
       <Gap size="big" />
       <InputField
