@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-import {navigate} from "@reach/router"
+import { navigate } from "@reach/router";
 
 import {
   Columns,
@@ -9,63 +9,65 @@ import {
   RadioButtonGroup,
   Select,
   Chrome,
-  Button
-} from '../../components/components'
+  Button,
+} from "../../components/components";
 
-import DiscardDialog from './discardDialog/discardDialog'
+import DiscardDialog from "./discardDialog/discardDialog";
 
-import {capitalizeString} from './createChallenge.utility'
+import { capitalizeString } from "./createChallenge.utility";
 
-import {useFormState, useDiscardDialogVisibility} from './createChallenge.hooks'
+import {
+  useFormState,
+  useDiscardDialogVisibility,
+} from "./createChallenge.hooks";
 
-import {createChallenge} from '../../app/db'
+import { createChallenge } from "../../app/db";
 
-import {challengeTypes} from '../../constants/constants'
+import { challengeTypes } from "../../constants/constants";
 
-const {target, limit, track} = challengeTypes
+const { target, limit, track } = challengeTypes;
 
-const getTypeOptions = () => (
-  [target, limit, track].map(type => ({
+const getTypeOptions = () =>
+  [target, limit, track].map((type) => ({
     label: capitalizeString(type),
-    value: type
-  }))
-)
+    value: type,
+  }));
 
-const getTitlePlaceholder = type => {
+const getTitlePlaceholder = (type) => {
   if (type === target) {
-    return 'e.g. Read more'
+    return "e.g. Read more";
   }
   if (type === limit) {
-    return 'e.g. Smoke less'
+    return "e.g. Smoke less";
   }
   if (type === track) {
-    return 'e.g. Do 60 push-ups'
+    return "e.g. Do 60 push-ups";
   }
-}
+};
 
-const getUnitSingularPlaceholder = type => {
+const getUnitSingularPlaceholder = (type) => {
   if (type === target) {
-    return 'e.g. book'
+    return "e.g. book";
   }
   if (type === limit) {
-    return 'e.g. cigarette'
+    return "e.g. cigarette";
   }
   if (type === track) {
-    return 'e.g. push-up'
+    return "e.g. push-up";
   }
-}
+};
 
-const getUnitPluralPlaceholder = type => {
+const getUnitPluralPlaceholder = (type) => {
   if (type === target) {
-    return 'e.g. books'
+    return "e.g. books";
   }
   if (type === limit) {
-    return 'e.g. cigarettes'
+    return "e.g. cigarettes";
   }
   if (type === track) {
-    return 'e.g. push-ups'
+    return "e.g. push-ups";
   }
-}
+};
 
 const CreateChallenge = () => {
   const {
@@ -88,29 +90,29 @@ const CreateChallenge = () => {
     onSetInitialValue,
     onSetTrackValue,
     onSetTargetLimitValue,
-    onSetPeriod
-  } = useFormState()
+    onSetPeriod,
+  } = useFormState();
 
   const {
     isDiscardDialogVisible,
-    onSetIsDiscardDialogVisible
-  } = useDiscardDialogVisibility()
+    onSetIsDiscardDialogVisible,
+  } = useDiscardDialogVisibility();
 
   return (
     <Chrome
-      title='Create new challenge'
+      title="Create new challenge"
       links={{
         left: {
-          to: '..',
-          text: 'Back',
-          onClick: event => {
-            event.preventDefault()
-            onSetIsDiscardDialogVisible(true)
+          to: "..",
+          text: "Back",
+          onClick: (event) => {
+            event.preventDefault();
+            onSetIsDiscardDialogVisible(true);
           },
-          tabIndex: isDiscardDialogVisible ? -1 : 0
-        }
+          tabIndex: isDiscardDialogVisible ? -1 : 0,
+        },
       }}
-      actions={(
+      actions={
         <>
           <Button
             onClick={async () => {
@@ -118,43 +120,44 @@ const CreateChallenge = () => {
                 title,
                 type,
                 startTimestamp: new Date(startDate).getTime(),
-                endTimestamp: (endDate === "") ? null : new Date(endDate).getTime(),
+                endTimestamp:
+                  endDate === "" ? null : new Date(endDate).getTime(),
                 unit: {
                   singular: unitSingular,
-                  plural: unitPlural
+                  plural: unitPlural,
                 },
-                ...((type === track) && {
+                ...(type === track && {
                   initialValue: Number(initialValue),
-                  trackValue: Number(trackValue)
+                  trackValue: Number(trackValue),
                 }),
                 ...([target, limit].includes(type) && {
                   targetValue: Number(targetLimitValue),
-                  period
-                })
-              })
-              navigate('/challenges/')
+                  period,
+                }),
+              });
+              navigate("/challenges/");
             }}
             tabIndex={isDiscardDialogVisible ? -1 : 0}
           >
             Create challenge
           </Button>
-          <Gap size='small' direction='horizontal' />
+          <Gap size="small" direction="horizontal" />
           <Button
             onClick={() => {
-              onSetIsDiscardDialogVisible(true)
+              onSetIsDiscardDialogVisible(true);
             }}
-            className='danger'
+            className="danger"
             tabIndex={isDiscardDialogVisible ? -1 : 0}
           >
             Discard
           </Button>
         </>
-      )}
+      }
     >
       {isDiscardDialogVisible && (
         <DiscardDialog
           onHide={() => {
-            onSetIsDiscardDialogVisible(false)
+            onSetIsDiscardDialogVisible(false);
           }}
         />
       )}
@@ -164,92 +167,94 @@ const CreateChallenge = () => {
         onChange={onSetType}
         buttonTabIndex={isDiscardDialogVisible ? -1 : 0}
       />
-      <Gap size='big' />
+      <Gap size="big" />
       <InputField
-        id='newChallengeTitle'
-        label='Title'
+        id="newChallengeTitle"
+        label="Title"
         placeholder={getTitlePlaceholder(type)}
         value={title}
-        onChange={({target: {value}}) => {
-          onSetTitle(value)
+        onChange={({ target: { value } }) => {
+          onSetTitle(value);
         }}
         tabIndex={isDiscardDialogVisible ? -1 : 0}
       />
-      <Gap size='big' />
-      <Columns gapSize='big'>
+      <Gap size="big" />
+      <Columns gapSize="big">
         <div>
           <InputField
-            id='newChallengeStartDate'
-            label='Start date'
-            type='date'
+            id="newChallengeStartDate"
+            label="Start date"
+            type="date"
             value={startDate}
-            onChange={({target: {value}}) => {
-              onSetStartDate(value)
+            onChange={({ target: { value } }) => {
+              onSetStartDate(value);
             }}
             tabIndex={isDiscardDialogVisible ? -1 : 0}
           />
         </div>
         <div>
           <InputField
-            id='newChallengeEndDate'
-            label='End date'
-            type='date'
+            id="newChallengeEndDate"
+            label="End date"
+            type="date"
             value={endDate}
-            onChange={({target: {value}}) => {
-              onSetEndDate(value)
+            onChange={({ target: { value } }) => {
+              onSetEndDate(value);
             }}
             tabIndex={isDiscardDialogVisible ? -1 : 0}
           />
         </div>
       </Columns>
-      <Gap size='big' />
-      {(type === track) && (
+      <Gap size="big" />
+      {type === track && (
         <>
-          <Columns gapSize='big'>
+          <Columns gapSize="big">
             <div>
               <InputField
-                id='initialValue'
-                label={`Initial ${(unitPlural.length > 1) ? unitPlural : 'value'}`}
-                type='number'
+                id="initialValue"
+                label={`Initial ${
+                  unitPlural.length > 1 ? unitPlural : "value"
+                }`}
+                type="number"
                 value={initialValue}
-                onChange={({target: {value}}) => {
-                  onSetInitialValue(value)
+                onChange={({ target: { value } }) => {
+                  onSetInitialValue(value);
                 }}
                 tabIndex={isDiscardDialogVisible ? -1 : 0}
               />
             </div>
             <div>
               <InputField
-                id='targetValue'
-                label={`Target ${(unitPlural.length > 1) ? unitPlural : 'value'}`}
-                type='number'
+                id="targetValue"
+                label={`Target ${unitPlural.length > 1 ? unitPlural : "value"}`}
+                type="number"
                 value={trackValue}
-                onChange={({target: {value}}) => {
-                  onSetTrackValue(value)
+                onChange={({ target: { value } }) => {
+                  onSetTrackValue(value);
                 }}
                 tabIndex={isDiscardDialogVisible ? -1 : 0}
               />
             </div>
             <div>
               <InputField
-                id='unitSingular'
-                label='unit (singular)'
-                type='text'
+                id="unitSingular"
+                label="unit (singular)"
+                type="text"
                 value={unitSingular}
-                onChange={({target: {value}}) => {
-                  onSetUnitSingular(value)
+                onChange={({ target: { value } }) => {
+                  onSetUnitSingular(value);
                 }}
                 placeholder={getUnitSingularPlaceholder(type)}
                 tabIndex={isDiscardDialogVisible ? -1 : 0}
               />
-              <Gap size='medium' />
+              <Gap size="medium" />
               <InputField
-                id='unitPlural'
-                label='unit (plural)'
-                type='text'
+                id="unitPlural"
+                label="unit (plural)"
+                type="text"
                 value={unitPlural}
-                onChange={({target: {value}}) => {
-                  onSetUnitPlural(value)
+                onChange={({ target: { value } }) => {
+                  onSetUnitPlural(value);
                 }}
                 placeholder={getUnitPluralPlaceholder(type)}
                 tabIndex={isDiscardDialogVisible ? -1 : 0}
@@ -262,37 +267,37 @@ const CreateChallenge = () => {
         <Columns>
           <div>
             <InputField
-              id='targetValue'
-              label={(type === target) ? 'At least' : 'At most'}
-              type='number'
+              id="targetValue"
+              label={type === target ? "At least" : "At most"}
+              type="number"
               min={0}
               value={targetLimitValue}
-              onChange={({target: {value}}) => {
-                onSetTargetLimitValue(value)
+              onChange={({ target: { value } }) => {
+                onSetTargetLimitValue(value);
               }}
               tabIndex={isDiscardDialogVisible ? -1 : 0}
             />
           </div>
           <div>
             <InputField
-              id='unitSingular'
-              label='unit (singular)'
-              type='text'
+              id="unitSingular"
+              label="unit (singular)"
+              type="text"
               value={unitSingular}
-              onChange={({target: {value}}) => {
-                onSetUnitSingular(value)
+              onChange={({ target: { value } }) => {
+                onSetUnitSingular(value);
               }}
               placeholder={getUnitSingularPlaceholder(type)}
               tabIndex={isDiscardDialogVisible ? -1 : 0}
             />
-            <Gap size='medium' />
+            <Gap size="medium" />
             <InputField
-              id='unitPlural'
-              label='unit (plural)'
-              type='text'
+              id="unitPlural"
+              label="unit (plural)"
+              type="text"
               value={unitPlural}
-              onChange={({target: {value}}) => {
-                onSetUnitPlural(value)
+              onChange={({ target: { value } }) => {
+                onSetUnitPlural(value);
               }}
               placeholder={getUnitPluralPlaceholder(type)}
               tabIndex={isDiscardDialogVisible ? -1 : 0}
@@ -300,11 +305,11 @@ const CreateChallenge = () => {
           </div>
           <div>
             <Select
-              id='period'
-              label='period'
+              id="period"
+              label="period"
               value={period}
-              onChange={({target: {value}}) => {
-                onSetPeriod(value)
+              onChange={({ target: { value } }) => {
+                onSetPeriod(value);
               }}
               tabIndex={isDiscardDialogVisible ? -1 : 0}
             >
@@ -322,7 +327,7 @@ const CreateChallenge = () => {
         </Columns>
       )}
     </Chrome>
-  )
-}
+  );
+};
 
-export default CreateChallenge
+export default CreateChallenge;
