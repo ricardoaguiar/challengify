@@ -14,4 +14,4 @@ const getTitlePlaceholder = (type) => {
   }
 };
 
-export {getTitlePlaceholder};
+export { getTitlePlaceholder };

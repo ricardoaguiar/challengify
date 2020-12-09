@@ -10,11 +10,7 @@ import { challengeTypes } from "../../../constants/constants";
 
 const { target, limit, track } = challengeTypes;
 
-const ChromeActions = ({
-  formData,
-  canHaveFocus,
-  onShowDiscardDialog,
-}) => {
+const ChromeActions = ({ formData, canHaveFocus, onShowDiscardDialog }) => {
   const {
     title,
     startDate,

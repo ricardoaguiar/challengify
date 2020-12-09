@@ -13,6 +13,7 @@ import DiscardDialog from "./discardDialog/discardDialog";
 import ChromeActions from "./chromeActions/chromeActions";
 import ChallengeTypeSelector from "./challengeTypeSelector/challengeTypeSelector";
 import ChallengeTitleInput from "./challengeTitleInput/challengeTitleInput";
+import ChallengeDateInputs from "./challengeDateInputs/challengeDateInputs";
 
 import {
   useFormState,
@@ -124,32 +125,13 @@ const CreateChallenge = () => {
         canHaveFocus={!isDiscardDialogVisible}
       />
       <Gap size="big" />
-      <Columns gapSize="big">
-        <div>
-          <InputField
-            id="newChallengeStartDate"
-            label="Start date"
-            type="date"
-            value={startDate}
-            onChange={({ target: { value } }) => {
-              onSetStartDate(value);
-            }}
-            tabIndex={isDiscardDialogVisible ? -1 : 0}
-          />
-        </div>
-        <div>
-          <InputField
-            id="newChallengeEndDate"
-            label="End date"
-            type="date"
-            value={endDate}
-            onChange={({ target: { value } }) => {
-              onSetEndDate(value);
-            }}
-            tabIndex={isDiscardDialogVisible ? -1 : 0}
-          />
-        </div>
-      </Columns>
+      <ChallengeDateInputs
+        startDate={startDate}
+        endDate={endDate}
+        onSetStartDate={onSetStartDate}
+        onSetEndDate={onSetEndDate}
+        canHaveFocus={!isDiscardDialogVisible}
+      />
       <Gap size="big" />
       {type === track && (
         <>

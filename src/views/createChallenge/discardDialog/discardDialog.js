@@ -1,20 +1,15 @@
-import React from 'react'
+import React from "react";
 
-import {navigate} from "@reach/router"
+import { navigate } from "@reach/router";
 
-import {
-  ConfirmationDialog,
-  Modal
-} from '../../../components/components'
+import { ConfirmationDialog, Modal } from "../../../components/components";
 
-const DiscardDialog = ({
-  onHide
-}) => (
+const DiscardDialog = ({ onHide }) => (
   <Modal>
     <ConfirmationDialog
-      confirmLabel='Discard'
+      confirmLabel="Discard"
       onConfirm={() => {
-        navigate('/challenges/')
+        navigate("/challenges/");
       }}
       onCancel={onHide}
     >
@@ -22,6 +17,6 @@ const DiscardDialog = ({
       <p>Your changes will be permanently lost.</p>
     </ConfirmationDialog>
   </Modal>
-)
+);
 
-export default DiscardDialog
+export default DiscardDialog;

@@ -2,7 +2,7 @@ import React from "react";
 
 import { InputField } from "../../../components/components";
 
-import {getTitlePlaceholder} from './challengeTitleInput.utility'
+import { getTitlePlaceholder } from "./challengeTitleInput.utility";
 
 const ChallengeTitleInput = ({ type, title, onSetTitle, canHaveFocus }) => (
   <InputField
