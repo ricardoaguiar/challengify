@@ -11,8 +11,8 @@ import {
 import DiscardDialog from "./discardDialog/discardDialog";
 
 import ChromeActions from "./chromeActions/chromeActions";
-
 import ChallengeTypeSelector from "./challengeTypeSelector/challengeTypeSelector";
+import ChallengeTitleInput from './challengeTitleInput/challengeTitleInput';
 
 import {
   useFormState,
@@ -117,7 +117,7 @@ const CreateChallenge = () => {
             targetLimitValue,
             period,
           }}
-          isDiscardDialogVisible={isDiscardDialogVisible}
+          canHaveFocus={!isDiscardDialogVisible}
           onShowDiscardDialog={onShowDiscardDialog}
         />
       }
@@ -126,18 +126,14 @@ const CreateChallenge = () => {
       <ChallengeTypeSelector
         type={type}
         onSetType={onSetType}
-        canHaveFocus={isDiscardDialogVisible}
+        canHaveFocus={!isDiscardDialogVisible}
       />
       <Gap size="big" />
-      <InputField
-        id="newChallengeTitle"
-        label="Title"
-        placeholder={getTitlePlaceholder(type)}
-        value={title}
-        onChange={({ target: { value } }) => {
-          onSetTitle(value);
-        }}
-        tabIndex={isDiscardDialogVisible ? -1 : 0}
+      <ChallengeTitleInput
+        type={type}
+        title={title}
+        onSetTitle={onSetTitle}
+        canHaveFocus={!isDiscardDialogVisible}
       />
       <Gap size="big" />
       <Columns gapSize="big">

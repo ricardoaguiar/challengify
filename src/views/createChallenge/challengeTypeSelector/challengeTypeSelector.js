@@ -9,7 +9,7 @@ const ChallengeTypeSelector = ({ type, onSetType, canHaveFocus }) => (
     options={getTypeOptions()}
     value={type}
     onChange={onSetType}
-    buttonTabIndex={canHaveFocus ? -1 : 0}
+    buttonTabIndex={canHaveFocus ? 0 : -1}
   />
 );
 

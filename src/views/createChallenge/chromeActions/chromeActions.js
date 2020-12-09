@@ -12,7 +12,7 @@ const { target, limit, track } = challengeTypes;
 
 const ChromeActions = ({
   formData,
-  isDiscardDialogVisible,
+  canHaveFocus,
   onShowDiscardDialog,
 }) => {
   const {
@@ -52,7 +52,7 @@ const ChromeActions = ({
           });
           navigate("/challenges/");
         }}
-        tabIndex={isDiscardDialogVisible ? -1 : 0}
+        tabIndex={canHaveFocus ? 0 : -1}
       >
         Create challenge
       </Button>
@@ -60,7 +60,7 @@ const ChromeActions = ({
       <Button
         onClick={onShowDiscardDialog}
         className="danger"
-        tabIndex={isDiscardDialogVisible ? -1 : 0}
+        tabIndex={canHaveFocus ? 0 : -1}
       >
         Discard
       </Button>
