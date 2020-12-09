@@ -12,7 +12,7 @@ import DiscardDialog from "./discardDialog/discardDialog";
 
 import ChromeActions from "./chromeActions/chromeActions";
 import ChallengeTypeSelector from "./challengeTypeSelector/challengeTypeSelector";
-import ChallengeTitleInput from './challengeTitleInput/challengeTitleInput';
+import ChallengeTitleInput from "./challengeTitleInput/challengeTitleInput";
 
 import {
   useFormState,
@@ -22,18 +22,6 @@ import {
 import { challengeTypes } from "../../constants/constants";
 
 const { target, limit, track } = challengeTypes;
-
-const getTitlePlaceholder = (type) => {
-  if (type === target) {
-    return "e.g. Read more";
-  }
-  if (type === limit) {
-    return "e.g. Smoke less";
-  }
-  if (type === track) {
-    return "e.g. Do 60 push-ups";
-  }
-};
 
 const getUnitSingularPlaceholder = (type) => {
   if (type === target) {
