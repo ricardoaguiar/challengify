@@ -1,7 +1,5 @@
 import React from "react";
 
-import { navigate } from "@reach/router";
-
 import {
   Columns,
   Gap,
@@ -9,10 +7,11 @@ import {
   RadioButtonGroup,
   Select,
   Chrome,
-  Button,
 } from "../../components/components";
 
 import DiscardDialog from "./discardDialog/discardDialog";
+
+import ChromeActions from "./chromeActions/chromeActions";
 
 import { capitalizeString } from "./createChallenge.utility";
 
@@ -20,8 +19,6 @@ import {
   useFormState,
   useDiscardDialogVisibility,
 } from "./createChallenge.hooks";
-
-import { createChallenge } from "../../app/db";
 
 import { challengeTypes } from "../../constants/constants";
 
@@ -95,7 +92,8 @@ const CreateChallenge = () => {
 
   const {
     isDiscardDialogVisible,
-    onSetIsDiscardDialogVisible,
+    onShowDiscardDialog,
+    onHideDiscardDialog,
   } = useDiscardDialogVisibility();
 
   return (
@@ -107,60 +105,31 @@ const CreateChallenge = () => {
           text: "Back",
           onClick: (event) => {
             event.preventDefault();
-            onSetIsDiscardDialogVisible(true);
+            onShowDiscardDialog();
           },
           tabIndex: isDiscardDialogVisible ? -1 : 0,
         },
       }}
       actions={
-        <>
-          <Button
-            onClick={async () => {
-              await createChallenge({
-                title,
-                type,
-                startTimestamp: new Date(startDate).getTime(),
-                endTimestamp:
-                  endDate === "" ? null : new Date(endDate).getTime(),
-                unit: {
-                  singular: unitSingular,
-                  plural: unitPlural,
-                },
-                ...(type === track && {
-                  initialValue: Number(initialValue),
-                  trackValue: Number(trackValue),
-                }),
-                ...([target, limit].includes(type) && {
-                  targetValue: Number(targetLimitValue),
-                  period,
-                }),
-              });
-              navigate("/challenges/");
-            }}
-            tabIndex={isDiscardDialogVisible ? -1 : 0}
-          >
-            Create challenge
-          </Button>
-          <Gap size="small" direction="horizontal" />
-          <Button
-            onClick={() => {
-              onSetIsDiscardDialogVisible(true);
-            }}
-            className="danger"
-            tabIndex={isDiscardDialogVisible ? -1 : 0}
-          >
-            Discard
-          </Button>
-        </>
+        <ChromeActions
+          formData={{
+            title,
+            startDate,
+            endDate,
+            type,
+            unitSingular,
+            unitPlural,
+            initialValue,
+            trackValue,
+            targetLimitValue,
+            period,
+          }}
+          isDiscardDialogVisible={isDiscardDialogVisible}
+          onShowDiscardDialog={onShowDiscardDialog}
+        />
       }
     >
-      {isDiscardDialogVisible && (
-        <DiscardDialog
-          onHide={() => {
-            onSetIsDiscardDialogVisible(false);
-          }}
-        />
-      )}
+      {isDiscardDialogVisible && <DiscardDialog onHide={onHideDiscardDialog} />}
       <RadioButtonGroup
         options={getTypeOptions(type)}
         value={type}

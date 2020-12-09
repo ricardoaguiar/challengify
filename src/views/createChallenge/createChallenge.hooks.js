@@ -1,23 +1,22 @@
+import { useState } from "react";
 
-import {useState} from 'react'
+import { getTodaysDate } from "./createChallenge.utility";
 
-import {getTodaysDate} from './createChallenge.utility'
-
-import {challengeTypes} from '../../constants/constants'
+import { challengeTypes } from "../../constants/constants";
 
 export const useFormState = () => {
-  const [title, onSetTitle] = useState('')
-  const [startDate, onSetStartDate] = useState(getTodaysDate())
-  const [endDate, onSetEndDate] = useState('')
-  const [type, onSetType] = useState(challengeTypes.target)
-  const [unitSingular, onSetUnitSingular] = useState('')
-  const [unitPlural, onSetUnitPlural] = useState('')
+  const [title, onSetTitle] = useState("");
+  const [startDate, onSetStartDate] = useState(getTodaysDate());
+  const [endDate, onSetEndDate] = useState("");
+  const [type, onSetType] = useState(challengeTypes.target);
+  const [unitSingular, onSetUnitSingular] = useState("");
+  const [unitPlural, onSetUnitPlural] = useState("");
   // For Track
-  const [initialValue, onSetInitialValue] = useState(0)
-  const [trackValue, onSetTrackValue] = useState(0)
+  const [initialValue, onSetInitialValue] = useState(0);
+  const [trackValue, onSetTrackValue] = useState(0);
   // For Target and Limit
-  const [targetLimitValue, onSetTargetLimitValue] = useState(0)
-  const [period, onSetPeriod] = useState('week')
+  const [targetLimitValue, onSetTargetLimitValue] = useState(0);
+  const [period, onSetPeriod] = useState("week");
 
   return {
     title,
@@ -39,14 +38,24 @@ export const useFormState = () => {
     onSetInitialValue,
     onSetTrackValue,
     onSetTargetLimitValue,
-    onSetPeriod
-  }
-}
+    onSetPeriod,
+  };
+};
 
 export const useDiscardDialogVisibility = () => {
   const [isDiscardDialogVisible, onSetIsDiscardDialogVisible] = useState(false);
+
+  const onShowDiscardDialog = () => {
+    onSetIsDiscardDialogVisible(true);
+  };
+
+  const onHideDiscardDialog = () => {
+    onSetIsDiscardDialogVisible(false);
+  };
+
   return {
     isDiscardDialogVisible,
-    onSetIsDiscardDialogVisible
-  }
-}
+    onShowDiscardDialog,
+    onHideDiscardDialog,
+  };
+};
