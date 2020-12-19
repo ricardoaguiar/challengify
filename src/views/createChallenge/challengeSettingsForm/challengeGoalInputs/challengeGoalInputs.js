@@ -1,10 +1,10 @@
 import React from "react";
 
-import { Columns, InputField, Select } from "../../../components/components";
+import { Columns, InputField, Select } from "../../../../components/components";
 
 import UnitInputs from "./challengeUnitInputs/challengeUnitInputs";
 
-import { challengeTypes } from "../../../constants/constants";
+import { challengeTypes } from "../../../../constants/constants";
 
 const { target, limit, track } = challengeTypes;
 

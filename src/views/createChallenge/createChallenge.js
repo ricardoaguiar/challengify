@@ -1,14 +1,11 @@
 import React from "react";
 
-import { Chrome, Gap } from "../../components/components";
+import { Chrome } from "../../components/components";
 
 import DiscardDialog from "./discardDialog/discardDialog";
 
 import ChromeActions from "./chromeActions/chromeActions";
-import ChallengeTypeSelector from "./challengeTypeSelector/challengeTypeSelector";
-import ChallengeTitleInput from "./challengeTitleInput/challengeTitleInput";
-import ChallengeDateInputs from "./challengeDateInputs/challengeDateInputs";
-import ChallengeGoalInputs from "./challengeGoalInputs/challengeGoalInputs";
+import ChallengeSettingsForm from "./challengeSettingsForm/challengeSettingsForm";
 
 import {
   useFormState,
@@ -79,28 +76,10 @@ const CreateChallenge = () => {
       }
     >
       {isDiscardDialogVisible && <DiscardDialog onHide={onHideDiscardDialog} />}
-      <ChallengeTypeSelector
-        type={type}
-        onSetType={onSetType}
-        canHaveFocus={!isDiscardDialogVisible}
-      />
-      <Gap size="big" />
-      <ChallengeTitleInput
-        type={type}
+      <ChallengeSettingsForm
         title={title}
-        onSetTitle={onSetTitle}
-        canHaveFocus={!isDiscardDialogVisible}
-      />
-      <Gap size="big" />
-      <ChallengeDateInputs
         startDate={startDate}
         endDate={endDate}
-        onSetStartDate={onSetStartDate}
-        onSetEndDate={onSetEndDate}
-        canHaveFocus={!isDiscardDialogVisible}
-      />
-      <Gap size="big" />
-      <ChallengeGoalInputs
         type={type}
         unitSingular={unitSingular}
         unitPlural={unitPlural}
@@ -108,6 +87,10 @@ const CreateChallenge = () => {
         trackValue={trackValue}
         targetLimitValue={targetLimitValue}
         period={period}
+        onSetTitle={onSetTitle}
+        onSetStartDate={onSetStartDate}
+        onSetEndDate={onSetEndDate}
+        onSetType={onSetType}
         onSetUnitSingular={onSetUnitSingular}
         onSetUnitPlural={onSetUnitPlural}
         onSetInitialValue={onSetInitialValue}
