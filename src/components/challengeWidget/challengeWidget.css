@@ -33,28 +33,35 @@
 }
 
 .challengeWidget .markers {
-  font-family: inherit;
+  padding: 2px;
+  margin: 2px;
+  display: flex;
 }
 
-.challengeWidget .markers .marker {
+.challengeWidget .markers .marker  {
   display: inline-flex;
   flex-direction: row;
   border-radius: 50%;
 }
 
+.challengeWidget .markers .marker p{
+display: flex;
+position: absolute;
+}
+ 
 .challengeWidget .markers .currentPeriod {
   height: 6rem;
   width: 6rem;
   justify-content: space-between;
   border-radius: 50%;
 }
-span {
-  display: block;
+.challengeWidget span {
+  display: flex;
   height: 3rem;
   width: 3rem;
   line-height: 3rem;
 
-  -moz-border-radius: 30px;
+  
   border-radius: 30px;
   justify-content: center;
   align-items: center;
@@ -66,11 +73,5 @@ span {
   margin: 12px;
   margin-left: 0px;
 }
-.months {
-  display: flex;
-  justify-content: space-between;
-  padding-right: 2px;
-}
-.currentPeriod {
-  float: right;
-}
+
+
