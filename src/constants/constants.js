@@ -1,7 +1,7 @@
-const challengeTypes = {
-  target: 'target',
-  limit: 'limit',
-  track: 'track'
-}
+const challengeTypes = Object.freeze({
+  target: "target",
+  limit: "limit",
+  track: "track",
+});
 
-export {challengeTypes}
+export { challengeTypes };

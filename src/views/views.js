@@ -1,5 +1,3 @@
-import CreateChallenge from './createChallenge/createChallenge'
+import CreateChallenge from "./createChallenge/createChallenge";
 
-export {
-  CreateChallenge
-}
+export { CreateChallenge };
