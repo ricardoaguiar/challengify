@@ -19,7 +19,7 @@
     "lint-css": "stylelint \"**/*.css\"",
     "lint": "npm run lint-js; npm run lint-css",
     "prettier": "prettier --check .",
-    "test": "react-scripts test",
+    "test": "react-scripts test --passWithNoTests",
     "build": "react-scripts build",
     "eject": "react-scripts eject"
   },
