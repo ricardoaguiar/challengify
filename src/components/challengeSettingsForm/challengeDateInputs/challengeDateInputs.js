@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Columns, InputField } from "../../components";
+import { Columns, InputField } from "components/components";
 
 const ChallengeDateInputs = ({
   startDate,

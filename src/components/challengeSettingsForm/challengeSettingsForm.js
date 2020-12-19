@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Gap } from "../components";
+import { Gap } from "components/components";
 
 import ChallengeTypeSelector from "./challengeTypeSelector/challengeTypeSelector";
 import ChallengeTitleInput from "./challengeTitleInput/challengeTitleInput";

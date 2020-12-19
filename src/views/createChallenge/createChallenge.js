@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Chrome, ChallengeSettingsForm } from "../../components/components";
+import { Chrome, ChallengeSettingsForm } from "components/components";
 
 import DiscardDialog from "./discardDialog/discardDialog";
 

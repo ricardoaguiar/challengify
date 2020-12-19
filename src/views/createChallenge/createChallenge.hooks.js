@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import { getTodaysDate } from "./createChallenge.utility";
 
-import { challengeTypes } from "../../constants/constants";
+import { challengeTypes } from "constants/constants";
 
 export const useFormState = () => {
   const [title, onSetTitle] = useState("");

@@ -1,4 +1,4 @@
-import { challengeTypes } from "../../../../constants/constants";
+import { challengeTypes } from "constants/constants";
 
 const { target, limit, track } = challengeTypes;
 

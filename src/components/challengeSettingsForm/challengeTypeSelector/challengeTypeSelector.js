@@ -1,6 +1,6 @@
 import React from "react";
 
-import { RadioButtonGroup } from "../../components";
+import { RadioButtonGroup } from "components/components";
 
 import { getTypeOptions } from "./challengeTypeSelector.utility";
 

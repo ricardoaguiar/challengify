@@ -1,19 +1,12 @@
-import React from 'react'
-import classNames from 'classnames'
+import React from "react";
+import classNames from "classnames";
 
-import './button.css'
+import "./button.css";
 
-const Button = ({
-  children,
-  className,
-  ...props
-}) => (
-  <button
-    className={classNames('button', className)}
-    {...props}
-  >
+const Button = ({ children, className, ...props }) => (
+  <button className={classNames("button", className)} {...props}>
     {children}
   </button>
-)
+);
 
-export default Button
+export default Button;

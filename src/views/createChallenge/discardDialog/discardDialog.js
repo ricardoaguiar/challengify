@@ -2,7 +2,7 @@ import React from "react";
 
 import { navigate } from "@reach/router";
 
-import { ConfirmationDialog, Modal } from "../../../components/components";
+import { ConfirmationDialog, Modal } from "components/components";
 
 const DiscardDialog = ({ onHide }) => (
   <Modal>

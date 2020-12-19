@@ -1,19 +1,19 @@
-import Dexie from 'dexie'
+import Dexie from "dexie";
 
-import {challengeTypes} from '../constants/constants'
+import { challengeTypes } from "constants/constants";
 
-const {target, limit, track} = challengeTypes
+const { target, limit, track } = challengeTypes;
 
 const initializeDatabase = () => {
-  const db = new Dexie('challengify')
+  const db = new Dexie("challengify");
   db.version(1).stores({
-    challenges: '++id,startTimestamp,archived,completed',
-    records: '++id,challengeId,timestamp,value'
-  })
-  return db
-}
+    challenges: "++id,startTimestamp,archived,completed",
+    records: "++id,challengeId,timestamp,value",
+  });
+  return db;
+};
 
-const db = initializeDatabase()
+const db = initializeDatabase();
 
 // const getRecordsForChallenge = async challenge => {
 //   const records = await db
@@ -43,36 +43,32 @@ const createChallenge = async ({
   type,
   startTimestamp,
   endTimestamp,
-  unit: {
-    singular,
-    plural
-  },
+  unit: { singular, plural },
   initialValue,
   trackValue,
   targetValue,
-  period
-}) => await (
-  db.challenges.put({
+  period,
+}) =>
+  await db.challenges.put({
     title,
     type,
     startTimestamp,
     endTimestamp,
     unit: {
       singular,
-      plural
+      plural,
     },
-    ...((type === track) && {
+    ...(type === track && {
       initialValue,
-      trackValue
+      trackValue,
     }),
     ...([target, limit].includes(type) && {
       targetValue,
-      period
+      period,
     }),
     completed: false,
-    archived: false
-  })
-)
+    archived: false,
+  });
 
 // updateChallenge({
 //   id: idToUpdate,
@@ -162,11 +158,11 @@ const createChallenge = async ({
 // )
 
 export {
-  createChallenge
+  createChallenge,
   // getChallenges,
   // updateChallenge,
   // deleteChallenge,
   // createRecord,
   // updateRecord,
   // deleteRecord
-}
+};

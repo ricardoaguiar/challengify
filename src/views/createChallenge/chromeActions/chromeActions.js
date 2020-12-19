@@ -2,11 +2,11 @@ import React from "react";
 
 import { navigate } from "@reach/router";
 
-import { Gap, Button } from "../../../components/components";
+import { Gap, Button } from "components/components";
 
-import { createChallenge } from "../../../app/db";
+import { createChallenge } from "app/db";
 
-import { challengeTypes } from "../../../constants/constants";
+import { challengeTypes } from "constants/constants";
 
 const { target, limit, track } = challengeTypes;
 
