@@ -1,4 +1,4 @@
-name: Continuous Integration
+name: CI
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [master]
 
 jobs:
-  build:
+  Build:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,7 +19,7 @@ jobs:
       - run: npm ci
       - run: npm run build
 
-  test:
+  Test:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,7 +31,7 @@ jobs:
       - run: npm ci
       - run: npm test
 
-  lint:
+  Lint:
     runs-on: ubuntu-latest
 
     steps:
