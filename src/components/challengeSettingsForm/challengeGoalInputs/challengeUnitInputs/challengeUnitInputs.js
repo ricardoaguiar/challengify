@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Gap, InputField } from "../../../../../components/components";
+import { Gap, InputField } from "../../../components";
 
 import {
   getUnitSingularPlaceholder,

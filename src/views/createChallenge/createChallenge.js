@@ -1,11 +1,10 @@
 import React from "react";
 
-import { Chrome } from "../../components/components";
+import { Chrome, ChallengeSettingsForm } from "../../components/components";
 
 import DiscardDialog from "./discardDialog/discardDialog";
 
 import ChromeActions from "./chromeActions/chromeActions";
-import ChallengeSettingsForm from "./challengeSettingsForm/challengeSettingsForm";
 
 import {
   useFormState,
