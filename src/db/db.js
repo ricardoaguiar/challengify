@@ -2,6 +2,7 @@ import createChallenge from "./createChallenge/createChallenge";
 import getChallenge from "./getChallenge/getChallenge";
 import getChallenges from "./getChallenges/getChallenges";
 import getRecordsForChallenge from "./getRecordsForChallenge/getRecordsForChallenge";
+import updateChallenge from "./updateChallenge/updateChallenge";
 
 // updateChallenge({
 //   id: idToUpdate,
@@ -90,4 +91,10 @@ import getRecordsForChallenge from "./getRecordsForChallenge/getRecordsForChalle
 //   db.records.delete(id)
 // )
 
-export { createChallenge, getChallenge, getChallenges, getRecordsForChallenge };
+export {
+  createChallenge,
+  getChallenge,
+  getChallenges,
+  getRecordsForChallenge,
+  updateChallenge,
+};
