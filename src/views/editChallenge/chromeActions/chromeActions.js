@@ -52,7 +52,7 @@ const ChromeActions = ({
               period,
             }),
           });
-          navigate("/challenges/");
+          navigate(`/challenges/${challengeId}/`);
         }}
         tabIndex={canHaveFocus ? 0 : -1}
       >

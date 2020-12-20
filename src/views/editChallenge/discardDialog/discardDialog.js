@@ -4,12 +4,12 @@ import { navigate } from "@reach/router";
 
 import { ConfirmationDialog, Modal } from "components/components";
 
-const DiscardDialog = ({ onHide }) => (
+const DiscardDialog = ({ onHide, challengeId }) => (
   <Modal>
     <ConfirmationDialog
       confirmLabel="Discard"
       onConfirm={() => {
-        navigate("/challenges/");
+        navigate(`/challenges/${challengeId}/`);
       }}
       onCancel={onHide}
     >

@@ -80,7 +80,9 @@ const EditChallenge = ({ challengeId }) => {
         />
       }
     >
-      {isDiscardDialogVisible && <DiscardDialog onHide={onHideDiscardDialog} />}
+      {isDiscardDialogVisible && (
+        <DiscardDialog onHide={onHideDiscardDialog} challengeId={challengeId} />
+      )}
       <ChallengeSettingsForm
         title={title}
         startDate={startDate}
