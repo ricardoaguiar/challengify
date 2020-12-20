@@ -3,7 +3,7 @@ import { Router, Link } from "@reach/router";
 
 import { CreateChallenge, EditChallenge } from "views/views";
 import { Chrome } from "components/components";
-import { getChallenges } from "./db";
+import { getChallenges } from "db/db";
 
 const EditRecord = ({ challengeId, recordId }) => (
   <Chrome

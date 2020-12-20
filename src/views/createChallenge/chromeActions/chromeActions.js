@@ -4,7 +4,7 @@ import { navigate } from "@reach/router";
 
 import { Gap, Button } from "components/components";
 
-import { createChallenge } from "app/db";
+import { createChallenge } from "db/db";
 
 import { challengeTypes } from "constants/constants";
 
