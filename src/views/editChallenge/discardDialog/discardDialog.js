@@ -13,7 +13,7 @@ const DiscardDialog = ({ onHide }) => (
       }}
       onCancel={onHide}
     >
-      <p>Are you sure you want to discard this challenge?</p>
+      <p>Are you sure you want to discard your changes?</p>
       <p>Your changes will be permanently lost.</p>
     </ConfirmationDialog>
   </Modal>

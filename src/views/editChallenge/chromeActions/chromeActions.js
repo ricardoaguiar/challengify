@@ -50,7 +50,7 @@ const ChromeActions = ({ formData, canHaveFocus, onShowDiscardDialog }) => {
         }}
         tabIndex={canHaveFocus ? 0 : -1}
       >
-        Create challenge
+        Update challenge
       </Button>
       <Gap size="small" direction="horizontal" />
       <Button

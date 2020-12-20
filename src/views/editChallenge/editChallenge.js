@@ -48,7 +48,7 @@ const EditChallenge = ({ challengeId }) => {
 
   return (
     <Chrome
-      title="Create new challenge"
+      title="Update challenge"
       links={{
         left: {
           to: "..",
