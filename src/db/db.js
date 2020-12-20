@@ -1,4 +1,5 @@
 import createChallenge from "./createChallenge/createChallenge";
+import getChallenge from "./getChallenge/getChallenge";
 import getChallenges from "./getChallenges/getChallenges";
 import getRecordsForChallenge from "./getRecordsForChallenge/getRecordsForChallenge";
 
@@ -89,4 +90,4 @@ import getRecordsForChallenge from "./getRecordsForChallenge/getRecordsForChalle
 //   db.records.delete(id)
 // )
 
-export { createChallenge, getChallenges, getRecordsForChallenge };
+export { createChallenge, getChallenge, getChallenges, getRecordsForChallenge };
