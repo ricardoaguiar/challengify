@@ -86,7 +86,9 @@ const Challenges = () => {
       }}
     >
       {challenges.map((challenge) => (
-        <Link to={`${challenge.id}`}>{challenge.title}</Link>
+        <Link key={challenge.id} to={`${challenge.id}`}>
+          {challenge.title}
+        </Link>
       ))}
     </Chrome>
   );
