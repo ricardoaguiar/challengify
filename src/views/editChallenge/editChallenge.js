@@ -74,6 +74,7 @@ const EditChallenge = ({ challengeId }) => {
             targetLimitValue,
             period,
           }}
+          challengeId={challengeId}
           canHaveFocus={!isDiscardDialogVisible}
           onShowDiscardDialog={onShowDiscardDialog}
         />
