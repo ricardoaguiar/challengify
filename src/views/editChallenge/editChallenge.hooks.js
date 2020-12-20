@@ -1,14 +1,28 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-import { getTodaysDate } from "./editChallenge.utility";
+import { getTodaysDate, getDateFromTimestamp } from "./editChallenge.utility";
 
 import { challengeTypes } from "constants/constants";
 
-export const useFormState = () => {
+import { getChallenge } from "db/db";
+
+const { target, limit, track } = challengeTypes;
+
+export const useFormState = ({ challengeId }) => {
+  const [isChallengeLoading, onSetIsChallengeLoading] = useState(true);
+  const [challenge, onSetChallenge] = useState();
+  useEffect(() => {
+    onSetIsChallengeLoading(true);
+    (async () => {
+      onSetChallenge(await getChallenge({ id: Number(challengeId) }));
+      onSetIsChallengeLoading(false);
+    })();
+  }, [challengeId]);
+
   const [title, onSetTitle] = useState("");
   const [startDate, onSetStartDate] = useState(getTodaysDate());
   const [endDate, onSetEndDate] = useState("");
-  const [type, onSetType] = useState(challengeTypes.target);
+  const [type, onSetType] = useState(target);
   const [unitSingular, onSetUnitSingular] = useState("");
   const [unitPlural, onSetUnitPlural] = useState("");
   // For Track
@@ -18,7 +32,34 @@ export const useFormState = () => {
   const [targetLimitValue, onSetTargetLimitValue] = useState(0);
   const [period, onSetPeriod] = useState("week");
 
+  useEffect(() => {
+    if (challenge) {
+      console.log(challenge);
+      onSetTitle(challenge.title);
+      onSetStartDate(
+        getDateFromTimestamp({ timestamp: challenge.startTimestamp })
+      );
+      if (challenge.endTimestamp) {
+        onSetEndDate(
+          getDateFromTimestamp({ timestamp: challenge.endTimestamp })
+        );
+      }
+      onSetType(challenge.type);
+      onSetUnitSingular(challenge.unit.singular);
+      onSetUnitPlural(challenge.unit.plural);
+      if (challenge.type === track) {
+        onSetInitialValue(challenge.initialValue);
+        onSetTrackValue(challenge.targetValue);
+      }
+      if ([target, limit].includes(challenge.type)) {
+        onSetTargetLimitValue(challenge.targetValue);
+        onSetPeriod(challenge.period);
+      }
+    }
+  }, [challenge]);
+
   return {
+    isLoading: isChallengeLoading,
     title,
     startDate,
     endDate,

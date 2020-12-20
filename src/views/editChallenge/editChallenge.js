@@ -2,8 +2,6 @@ import React from "react";
 
 import { Chrome, ChallengeSettingsForm } from "components/components";
 
-import { getChallenge } from "db/db";
-
 import DiscardDialog from "./discardDialog/discardDialog";
 
 import ChromeActions from "./chromeActions/chromeActions";
@@ -14,9 +12,8 @@ import {
 } from "./editChallenge.hooks";
 
 const EditChallenge = ({ challengeId }) => {
-  getChallenge({ id: Number(challengeId) }).then(console.log);
-
   const {
+    isLoading,
     title,
     startDate,
     endDate,
@@ -37,7 +34,7 @@ const EditChallenge = ({ challengeId }) => {
     onSetTrackValue,
     onSetTargetLimitValue,
     onSetPeriod,
-  } = useFormState();
+  } = useFormState({ challengeId });
 
   const {
     isDiscardDialogVisible,
