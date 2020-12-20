@@ -4,11 +4,13 @@ import { getTodaysDate } from "./createChallenge.utility";
 
 import { challengeTypes } from "constants/constants";
 
+const { target } = challengeTypes;
+
 export const useFormState = () => {
   const [title, onSetTitle] = useState("");
   const [startDate, onSetStartDate] = useState(getTodaysDate());
   const [endDate, onSetEndDate] = useState("");
-  const [type, onSetType] = useState(challengeTypes.target);
+  const [type, onSetType] = useState(target);
   const [unitSingular, onSetUnitSingular] = useState("");
   const [unitPlural, onSetUnitPlural] = useState("");
   // For Track

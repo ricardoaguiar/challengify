@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Router, Link } from "@reach/router";
 
-import { CreateChallenge } from "views/views";
+import { CreateChallenge, EditChallenge } from "views/views";
 import { Chrome } from "components/components";
+import { getChallenges } from "db/db";
 
 const EditRecord = ({ challengeId, recordId }) => (
   <Chrome
@@ -23,20 +24,6 @@ const DeleteRecord = ({ challengeId, recordId }) => (
     Delete record {recordId} of challenge {challengeId}?
     <Link to="../edit">No, go back to record</Link>
   </div>
-);
-
-const ChallengeSettings = ({ challengeId }) => (
-  <Chrome
-    title={`Challenge settings for ${challengeId}`}
-    links={{
-      left: {
-        to: "..",
-        text: "Back",
-      },
-    }}
-  >
-    <Link to="../delete">Delete</Link>
-  </Chrome>
 );
 
 const DeleteChallenge = ({ challengeId }) => (
@@ -73,7 +60,7 @@ const Challenge = ({ challengeId }) => (
 
 const ChallengeRouter = ({ challengeId }) => (
   <Router className="fullSize">
-    <ChallengeSettings path="settings" />
+    <EditChallenge path="settings" />
     <DeleteChallenge path="delete" />
     <EditRecord path="records/:recordId/edit" challengeId={challengeId} />
     <DeleteRecord path="records/:recordId/delete" challengeId={challengeId} />
@@ -81,21 +68,31 @@ const ChallengeRouter = ({ challengeId }) => (
   </Router>
 );
 
-const Challenges = () => (
-  <Chrome
-    title="Challenges"
-    links={{
-      right: {
-        to: "new",
-        text: "New",
-      },
-    }}
-  >
-    <Link to="id1">Challenge 1</Link>
-    <Link to="id2">Challenge 2</Link>
-    <Link to="id3">Challenge 3</Link>
-  </Chrome>
-);
+const Challenges = () => {
+  const [challenges, onSetChallenges] = useState([]);
+  useEffect(() => {
+    (async () => {
+      onSetChallenges(await getChallenges());
+    })();
+  }, []);
+  return (
+    <Chrome
+      title="Challenges"
+      links={{
+        right: {
+          to: "new",
+          text: "New",
+        },
+      }}
+    >
+      {challenges.map((challenge) => (
+        <Link key={challenge.id} to={`${challenge.id}`}>
+          {challenge.title}
+        </Link>
+      ))}
+    </Chrome>
+  );
+};
 
 const ChallengesRouter = () => (
   <Router className="fullSize">

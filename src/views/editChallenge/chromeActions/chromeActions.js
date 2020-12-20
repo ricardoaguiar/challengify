@@ -4,13 +4,18 @@ import { navigate } from "@reach/router";
 
 import { Gap, Button } from "components/components";
 
-import { createChallenge } from "db/db";
+import { updateChallenge } from "db/db";
 
 import { challengeTypes } from "constants/constants";
 
 const { target, limit, track } = challengeTypes;
 
-const ChromeActions = ({ formData, canHaveFocus, onShowDiscardDialog }) => {
+const ChromeActions = ({
+  challengeId,
+  formData,
+  canHaveFocus,
+  onShowDiscardDialog,
+}) => {
   const {
     title,
     startDate,
@@ -28,7 +33,8 @@ const ChromeActions = ({ formData, canHaveFocus, onShowDiscardDialog }) => {
     <>
       <Button
         onClick={async () => {
-          await createChallenge({
+          await updateChallenge({
+            id: Number(challengeId),
             title,
             type,
             startTimestamp: new Date(startDate).getTime(),
@@ -46,11 +52,11 @@ const ChromeActions = ({ formData, canHaveFocus, onShowDiscardDialog }) => {
               period,
             }),
           });
-          navigate("/challenges/");
+          navigate(`/challenges/${challengeId}/`);
         }}
         tabIndex={canHaveFocus ? 0 : -1}
       >
-        Create challenge
+        Update challenge
       </Button>
       <Gap size="small" direction="horizontal" />
       <Button
