@@ -42,6 +42,10 @@ const EditChallenge = ({ challengeId }) => {
     onHideDiscardDialog,
   } = useDiscardDialogVisibility();
 
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <Chrome
       title="Create new challenge"
