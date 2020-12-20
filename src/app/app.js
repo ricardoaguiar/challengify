@@ -1,7 +1,7 @@
 import React from "react";
 import { Router, Link } from "@reach/router";
 
-import { CreateChallenge } from "views/views";
+import { CreateChallenge, EditChallenge } from "views/views";
 import { Chrome } from "components/components";
 
 const EditRecord = ({ challengeId, recordId }) => (
@@ -23,20 +23,6 @@ const DeleteRecord = ({ challengeId, recordId }) => (
     Delete record {recordId} of challenge {challengeId}?
     <Link to="../edit">No, go back to record</Link>
   </div>
-);
-
-const ChallengeSettings = ({ challengeId }) => (
-  <Chrome
-    title={`Challenge settings for ${challengeId}`}
-    links={{
-      left: {
-        to: "..",
-        text: "Back",
-      },
-    }}
-  >
-    <Link to="../delete">Delete</Link>
-  </Chrome>
 );
 
 const DeleteChallenge = ({ challengeId }) => (
@@ -73,7 +59,7 @@ const Challenge = ({ challengeId }) => (
 
 const ChallengeRouter = ({ challengeId }) => (
   <Router className="fullSize">
-    <ChallengeSettings path="settings" />
+    <EditChallenge path="settings" />
     <DeleteChallenge path="delete" />
     <EditRecord path="records/:recordId/edit" challengeId={challengeId} />
     <DeleteRecord path="records/:recordId/delete" challengeId={challengeId} />
