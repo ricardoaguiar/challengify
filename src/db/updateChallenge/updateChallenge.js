@@ -15,20 +15,7 @@ const updateChallenge = async ({
   targetValue,
   period,
 }) =>
-  console.log({
-    id,
-    title,
-    type,
-    startTimestamp,
-    endTimestamp,
-    singular,
-    plural,
-    initialValue,
-    trackValue,
-    targetValue,
-    period,
-  }) ||
-  (await db.challenges.update(id, {
+  await db.challenges.update(id, {
     title,
     type,
     startTimestamp,
@@ -47,6 +34,6 @@ const updateChallenge = async ({
     }),
     completed: false,
     archived: false,
-  }));
+  });
 
 export default updateChallenge;

@@ -34,7 +34,6 @@ export const useFormState = ({ challengeId }) => {
 
   useEffect(() => {
     if (challenge) {
-      console.log(challenge);
       onSetTitle(challenge.title);
       onSetStartDate(
         getDateFromTimestamp({ timestamp: challenge.startTimestamp })
