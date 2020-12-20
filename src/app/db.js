@@ -15,28 +15,21 @@ const initializeDatabase = () => {
 
 const db = initializeDatabase();
 
-// const getRecordsForChallenge = async challenge => {
-//   const records = await db
-//     .records
-//     .where('challengeId')
-//     .equals(challenge.id)
-//     .toArray()
-//   return {
-//     ...challenge,
-//     records
-//   }
-// }
+const getRecordsForChallenge = async (challenge) => {
+  const records = await db.records
+    .where("challengeId")
+    .equals(challenge.id)
+    .toArray();
+  return {
+    ...challenge,
+    records,
+  };
+};
 
-// const getChallenges = async () => {
-//   const challenges = await (
-//     db
-//       .challenges
-//       .toArray()
-//   )
-//   return await Promise.all(
-//     challenges.map(getRecordsForChallenge)
-//   )
-// }
+const getChallenges = async () => {
+  const challenges = await db.challenges.toArray();
+  return await Promise.all(challenges.map(getRecordsForChallenge));
+};
 
 const createChallenge = async ({
   title,
@@ -159,7 +152,7 @@ const createChallenge = async ({
 
 export {
   createChallenge,
-  // getChallenges,
+  getChallenges,
   // updateChallenge,
   // deleteChallenge,
   // createRecord,
