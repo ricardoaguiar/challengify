@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Router, Link } from "@reach/router";
 
 import { CreateChallenge, EditChallenge } from "views/views";
 import { Chrome } from "components/components";
+import { getChallenges } from "./db";
 
 const EditRecord = ({ challengeId, recordId }) => (
   <Chrome
@@ -67,21 +68,29 @@ const ChallengeRouter = ({ challengeId }) => (
   </Router>
 );
 
-const Challenges = () => (
-  <Chrome
-    title="Challenges"
-    links={{
-      right: {
-        to: "new",
-        text: "New",
-      },
-    }}
-  >
-    <Link to="id1">Challenge 1</Link>
-    <Link to="id2">Challenge 2</Link>
-    <Link to="id3">Challenge 3</Link>
-  </Chrome>
-);
+const Challenges = () => {
+  const [challenges, onSetChallenges] = useState([]);
+  useEffect(() => {
+    (async () => {
+      onSetChallenges(await getChallenges());
+    })();
+  }, []);
+  return (
+    <Chrome
+      title="Challenges"
+      links={{
+        right: {
+          to: "new",
+          text: "New",
+        },
+      }}
+    >
+      {challenges.map((challenge) => (
+        <Link to={`${challenge.id}`}>{challenge.title}</Link>
+      ))}
+    </Chrome>
+  );
+};
 
 const ChallengesRouter = () => (
   <Router className="fullSize">
